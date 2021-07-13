@@ -1,0 +1,65 @@
+PODS:
+  - BigInt (5.2.0)
+  - CryptoSwift (1.3.8)
+  - MagicExt-OAuth (0.10.0):
+    - MagicSDK (~> 2.2)
+  - MagicSDK (2.3.0):
+    - MagicSDK-Web3 (~> 1.0)
+    - MagicSDK-Web3/ContractABI (~> 1.0)
+    - MagicSDK-Web3/PromiseKit (~> 1.0)
+    - PromiseKit/CorePromise (~> 6.13)
+    - Rollbar (= 1.12.14)
+  - MagicSDK-Web3 (1.0.2):
+    - MagicSDK-Web3/Core (= 1.0.2)
+    - MagicSDK-Web3/HTTPExtension (= 1.0.2)
+  - MagicSDK-Web3/ContractABI (1.0.2):
+    - MagicSDK-Web3/Core
+  - MagicSDK-Web3/Core (1.0.2):
+    - BigInt (~> 5.0)
+    - CryptoSwift (= 1.3.8)
+    - secp256k1.swift (~> 0.1)
+  - MagicSDK-Web3/HTTPExtension (1.0.2):
+    - MagicSDK-Web3/Core
+  - MagicSDK-Web3/PromiseKit (1.0.2):
+    - MagicSDK-Web3/Core
+    - PromiseKit/CorePromise (~> 6.0)
+  - Nimble (9.0.1)
+  - PromiseKit/CorePromise (6.15.3)
+  - Quick (3.1.2)
+  - Rollbar (1.12.14)
+  - secp256k1.swift (0.1.4)
+
+DEPENDENCIES:
+  - MagicExt-OAuth (~> 0.10)
+  - MagicSDK (~> 2.3)
+  - Nimble (~> 9.0.1)
+  - Quick (~> 3.1.2)
+
+SPEC REPOS:
+  trunk:
+    - BigInt
+    - CryptoSwift
+    - MagicExt-OAuth
+    - MagicSDK
+    - MagicSDK-Web3
+    - Nimble
+    - PromiseKit
+    - Quick
+    - Rollbar
+    - secp256k1.swift
+
+SPEC CHECKSUMS:
+  BigInt: f668a80089607f521586bbe29513d708491ef2f7
+  CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
+  MagicExt-OAuth: 417ed4a6bddee38d3bdb160aa0670cf6dcbcbefb
+  MagicSDK: 2e7ae8f6ac86374edaee6818cc5ab71ae42b51e2
+  MagicSDK-Web3: 53384d35658f56e909ec84b8644dfa0c637db9b6
+  Nimble: 7bed62ffabd6dbfe05f5925cbc43722533248990
+  PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
+  Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
+  Rollbar: 58f315609433558a82af5a54d7888bb020bec561
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+
+PODFILE CHECKSUM: 25381a1433f88135a87861840cb466a82a6f4e1f
+
+COCOAPODS: 1.10.1
