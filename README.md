@@ -25,6 +25,12 @@ $ pod install
 
 3. Start the app in the XCode
 
+Contract 
+---
+To access contract features, make sure you're on Rinkeby network, or use the test key in the dashboard to initialize Magic.
+
+Contract on Rinkeby https://rinkeby.etherscan.io/address/0x8b211dfebf490a648f6de859dfbed61fa22f35e0 
+
 SDK
 ---
 | Package  |  Repo | Status  | 
