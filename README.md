@@ -25,6 +25,8 @@ $ pod install
 
 3. Start the app in the XCode
 
+For detail integrations, please check our [Doc](https://magic.link/docs/client-sdk/ios/get-started) and [Web3 Doc](https://magic.link/docs/blockchains/ethereum#ios)
+
 SDK
 ---
 | Package  |  Repo | Status  | 
