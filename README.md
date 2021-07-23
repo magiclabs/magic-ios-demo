@@ -1,7 +1,7 @@
 Magic IOS Demo App
 ---
 
-This is a demo app to demonstrate the usage of Magic IOS SDK including Web3 
+This is a demo app to demonstrate the usage of Magic IOS SDK including Web3 functionalities
 
 Get Started
 ---
