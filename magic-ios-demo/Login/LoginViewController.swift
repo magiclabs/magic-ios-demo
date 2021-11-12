@@ -13,7 +13,9 @@ import MagicSDK_Web3
 
 protocol LoginViewControllerDelegate: AnyObject {}
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    
 
     static let storyboardIdentifier = "LoginVC"
 
@@ -21,10 +23,45 @@ class LoginViewController: UIViewController {
     var isLoggedIn: Bool?
     
     weak var delegate: LoginViewControllerDelegate?
+    
+    // outlets
     @IBOutlet weak var emailInput: UITextField!
+    @IBOutlet weak var phoneInput: UITextField!
+     
+    @IBOutlet var providerPicker: UITextField!
+    
+     // picker
+    let pickerData: [String] = OAuthProvider.allCases.map { $0.rawValue }
+     var selectedRow: Int = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //Picker
+        let picker: UIPickerView
+         picker = UIPickerView(frame: CGRect(x: 0, y: 200, width: view.frame.width, height: 300))
+        picker.delegate = self
+        picker.dataSource = self
+         
+         let toolBar = UIToolbar()
+         toolBar.barStyle = UIBarStyle.default
+         toolBar.isTranslucent = true
+         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+         toolBar.sizeToFit()
+
+         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.donePicker))
+         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.donePicker))
+
+         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+         toolBar.isUserInteractionEnabled = true
+         picker.selectRow(0, inComponent: 0, animated: false)
+
+         providerPicker.inputView = picker
+         providerPicker.inputAccessoryView = toolBar
+        
+        // email Input
         self.emailInput.isHidden = true
         
         guard let magic = magic else { return }
@@ -46,6 +83,33 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
+    // MARK: - PickerView
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+     // handles selection result
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+         providerPicker.text = "\(pickerData[row]) 🔽"
+         selectedRow = row
+    }
+     
+     @objc func donePicker() {
+
+         providerPicker.resignFirstResponder()
+     }
+    
+    
+    // MARK: - Navigation
     func navigateToMain () {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
@@ -56,8 +120,8 @@ class LoginViewController: UIViewController {
     }
 
     
-    // MARK: - Sign in
-    func handleSignIn() {
+    // MARK: - Email Login
+    func handleEmailLogin() {
         guard let magic = magic else { return }
 
         let configuration = LoginWithMagicLinkConfiguration(email: self.emailInput.text!)
@@ -77,7 +141,7 @@ class LoginViewController: UIViewController {
             }
     }
     
-//    // MARK: - Sign in with PromiEvents
+//    // MARK: - Email Login with PromiEvents
 //    func handleSignIn() {
 //        guard let magic = magic else { return }
 //
@@ -100,6 +164,7 @@ class LoginViewController: UIViewController {
 //
     // MARK: - Social Login
     func handleSocialLogin(provider: OAuthProvider) {
+        
         guard let magic = magic else { return }
         
         let config = OAuthConfiguration(provider: provider, redirectURI: "magicdemo://")
@@ -134,43 +199,33 @@ class LoginViewController: UIViewController {
         })
     }
     
-    @IBAction func signIn() {
-        handleSignIn()
+    // MARK: - SMS Login
+    func handleSMSLogin() {
+        guard let magic = magic else { return }
+        
+        let config = LoginWithSmsConfiguration(phoneNumber: self.phoneInput.text!)
+  
+        magic.auth.loginWithSMS(config, response: {res in
+            
+            if (res.status.isSuccess) {
+                print(res.result ?? "nil")
+                self.navigateToMain()
+            }
+
+        })
     }
     
-    @IBAction func googleLogin() {
-        handleSocialLogin(provider: OAuthProvider.GOOGLE)
+    
+    @IBAction func emailLogin() {
+        handleEmailLogin()
     }
     
-    @IBAction func appleLogin() {
-        handleSocialLogin(provider: OAuthProvider.APPLE)
+    @IBAction func SMSLogin() {
+        handleSMSLogin()
     }
-    
-    @IBAction func facebookLogin() {
-        handleSocialLogin(provider: OAuthProvider.FACEBOOK)
-    }
-    
-    @IBAction func linkedinLogin() {
-        handleSocialLogin(provider: OAuthProvider.LINKEDIN)
-    }
-    
-    @IBAction func githubLogin() {
-        handleSocialLogin(provider: OAuthProvider.GITHUB)
-    }
-    
-    @IBAction func gitlabLogin() {
-        handleSocialLogin(provider: OAuthProvider.GITLAB)
-    }
-    
-    @IBAction func bitbucketLogin() {
-        handleSocialLogin(provider: OAuthProvider.BITBUCKET)
-    }
-    
-    @IBAction func twitterLogin() {
-        handleSocialLogin(provider: OAuthProvider.TWITTER)
-    }
-    
-    @IBAction func discordLogin() {
-        handleSocialLogin(provider: OAuthProvider.DISCORD)
-    }
+     
+     @IBAction func SocialLogin() {
+          
+          handleSocialLogin(provider: OAuthProvider.allCases[selectedRow])
+     }
 }
