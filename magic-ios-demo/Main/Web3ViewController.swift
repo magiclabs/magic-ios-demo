@@ -96,6 +96,13 @@ class Web3ViewController: UIViewController {
                 self.showResult(response.hex(eip55: false))
             })
         }
+    
+    func testNetworkId() {
+        
+        web3.net.version().done({ response in
+            self.showResult(response)
+        })
+    }
         
         /// personal sign
         func testPersonalSign() {

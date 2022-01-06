@@ -74,7 +74,7 @@ class MagicViewController: UIViewController {
         
         magic.user.updateEmail(configuration, eventLog: true)
             .once(eventName: "email-not-deliverable"){
-            print("Shit happens")
+            print("Email not deliverable")
         }.once(eventName: "email-sent"){
             print("Email sent!")
         }.done({ result in

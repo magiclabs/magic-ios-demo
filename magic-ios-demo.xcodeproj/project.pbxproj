@@ -59,7 +59,7 @@
 		A14B60DC269720AD00B1E696 /* MagicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicViewController.swift; sourceTree = "<group>"; };
 		A14B60DD269720AD00B1E696 /* Web3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3ViewController.swift; sourceTree = "<group>"; };
 		A14B60DE269720AD00B1E696 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		A14B60E2269720CB00B1E696 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A14B60E2269720CB00B1E696 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A1F544D1269996750011BAB0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A6072224EC906CF8EBB5456B /* Pods-magic-ios-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-demoTests.release.xcconfig"; path = "Target Support Files/Pods-magic-ios-demoTests/Pods-magic-ios-demoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3F0F2678AB50C048E0AD5A2 /* Pods_magic_ios_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magic_ios_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +104,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A12F48F1273E632600DD609F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A14B60E2269720CB00B1E696 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A14B606D26959E0A00B1E696 = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				A1F544D1269996750011BAB0 /* Main.storyboard */,
-				A14B60DB269720AD00B1E696 /* Tabbar */,
-				A14B60E2269720CB00B1E696 /* LoginViewController.swift */,
+				A12F48F1273E632600DD609F /* Login */,
+				A14B60DB269720AD00B1E696 /* Main */,
 				A14B607926959E0A00B1E696 /* AppDelegate.swift */,
 				A14B607B26959E0A00B1E696 /* SceneDelegate.swift */,
 				A14B607D26959E0A00B1E696 /* ViewController.swift */,
@@ -160,14 +168,14 @@
 			path = "magic-ios-demoUITests";
 			sourceTree = "<group>";
 		};
-		A14B60DB269720AD00B1E696 /* Tabbar */ = {
+		A14B60DB269720AD00B1E696 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				A14B60DC269720AD00B1E696 /* MagicViewController.swift */,
 				A14B60DD269720AD00B1E696 /* Web3ViewController.swift */,
 				A14B60DE269720AD00B1E696 /* MainTabBarController.swift */,
 			);
-			path = Tabbar;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		AB2B1A5DEE437E66B620A324 /* Frameworks */ = {
