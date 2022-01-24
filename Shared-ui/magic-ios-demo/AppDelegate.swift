@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // MARK: - Magic Instantiation
-        Magic.shared = Magic(apiKey: "pk_live_D5EA1E346A791DB7")
+        Magic.shared = Magic(apiKey: "YOUR_PUBLISHABLE_KEY")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
