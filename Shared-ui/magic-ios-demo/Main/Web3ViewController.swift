@@ -9,6 +9,8 @@
 import UIKit
 import MagicSDK_Web3
 import MagicSDK
+import Web3ContractABI
+import Web3PromiseKit
 
 protocol Web3ViewControllerDelegate: class {}
 
