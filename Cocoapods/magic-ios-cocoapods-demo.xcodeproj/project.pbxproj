@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05CFCDD440532925AD418B7E /* Pods_magic_ios_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F0F2678AB50C048E0AD5A2 /* Pods_magic_ios_demoTests.framework */; };
-		3EEE3709C08C0B097E4866A5 /* Pods_magic_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758CF87EA85CF0A170D21021 /* Pods_magic_ios_demo.framework */; };
 		A14B607A26959E0A00B1E696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B607926959E0A00B1E696 /* AppDelegate.swift */; };
 		A14B607C26959E0A00B1E696 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B607B26959E0A00B1E696 /* SceneDelegate.swift */; };
 		A14B607E26959E0A00B1E696 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B607D26959E0A00B1E696 /* ViewController.swift */; };
@@ -20,6 +18,8 @@
 		A14B60E1269720AE00B1E696 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B60DE269720AD00B1E696 /* MainTabBarController.swift */; };
 		A14B60E3269720CB00B1E696 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B60E2269720CB00B1E696 /* LoginViewController.swift */; };
 		A1F544D2269996750011BAB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F544D1269996750011BAB0 /* Main.storyboard */; };
+		CDF9827CC61F56EB063602AB /* Pods_magic_ios_cocoapods_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F454F472FBEA12A7BEF918 /* Pods_magic_ios_cocoapods_demo.framework */; };
+		F6BBA79C55EF86D0AA7C5D62 /* Pods_magic_ios_cocoapods_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675B0C39D45653AF1E4EB78F /* Pods_magic_ios_cocoapods_demoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,19 +41,23 @@
 
 /* Begin PBXFileReference section */
 		1AE4E7282A1ED6D09C4F30AC /* Pods-magic-ios-demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-demoTests.debug.xcconfig"; path = "Target Support Files/Pods-magic-ios-demoTests/Pods-magic-ios-demoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1ED3FDBE5547F9ED7ED78F59 /* Pods-magic-ios-cocoapods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-cocoapods-demo.release.xcconfig"; path = "Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo.release.xcconfig"; sourceTree = "<group>"; };
+		1FC5F5F1223D0CA80A143B1B /* Pods-magic-ios-cocoapods-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-cocoapods-demoTests.release.xcconfig"; path = "Target Support Files/Pods-magic-ios-cocoapods-demoTests/Pods-magic-ios-cocoapods-demoTests.release.xcconfig"; sourceTree = "<group>"; };
+		240597C32C3227F302D784CD /* Pods-magic-ios-cocoapods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-cocoapods-demo.debug.xcconfig"; path = "Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo.debug.xcconfig"; sourceTree = "<group>"; };
+		47F454F472FBEA12A7BEF918 /* Pods_magic_ios_cocoapods_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magic_ios_cocoapods_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CECDA849F0BDC59775B7BCB /* Pods-magic-ios-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-demo.release.xcconfig"; path = "Target Support Files/Pods-magic-ios-demo/Pods-magic-ios-demo.release.xcconfig"; sourceTree = "<group>"; };
-		758CF87EA85CF0A170D21021 /* Pods_magic_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magic_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A14B607626959E0A00B1E696 /* magic-ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		675B0C39D45653AF1E4EB78F /* Pods_magic_ios_cocoapods_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magic_ios_cocoapods_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C09B1E33C96D32B1920A2D7 /* Pods-magic-ios-cocoapods-demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-cocoapods-demoTests.debug.xcconfig"; path = "Target Support Files/Pods-magic-ios-cocoapods-demoTests/Pods-magic-ios-cocoapods-demoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A14B607626959E0A00B1E696 /* magic-ios-cocoapods-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-ios-cocoapods-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B607926959E0A00B1E696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A14B607B26959E0A00B1E696 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A14B607D26959E0A00B1E696 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A14B608226959E0D00B1E696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A14B608526959E0D00B1E696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A14B608726959E0D00B1E696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A14B608C26959E0D00B1E696 /* magic-ios-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "magic-ios-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14B608C26959E0D00B1E696 /* magic-ios-cocoapods-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "magic-ios-cocoapods-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B609026959E0D00B1E696 /* magic_ios_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magic_ios_demoTests.swift; sourceTree = "<group>"; };
 		A14B609226959E0D00B1E696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A14B609726959E0D00B1E696 /* magic-ios-demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "magic-ios-demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14B609726959E0D00B1E696 /* magic-ios-cocoapods-demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "magic-ios-cocoapods-demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14B609B26959E0D00B1E696 /* magic_ios_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magic_ios_demoUITests.swift; sourceTree = "<group>"; };
 		A14B609D26959E0D00B1E696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A14B60DC269720AD00B1E696 /* MagicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +66,6 @@
 		A14B60E2269720CB00B1E696 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A1F544D1269996750011BAB0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A6072224EC906CF8EBB5456B /* Pods-magic-ios-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-demoTests.release.xcconfig"; path = "Target Support Files/Pods-magic-ios-demoTests/Pods-magic-ios-demoTests.release.xcconfig"; sourceTree = "<group>"; };
-		C3F0F2678AB50C048E0AD5A2 /* Pods_magic_ios_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_magic_ios_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB1A8F3DB6D7F4E60E507C3 /* Pods-magic-ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-demo.debug.xcconfig"; path = "Target Support Files/Pods-magic-ios-demo/Pods-magic-ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EEE3709C08C0B097E4866A5 /* Pods_magic_ios_demo.framework in Frameworks */,
+				CDF9827CC61F56EB063602AB /* Pods_magic_ios_cocoapods_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05CFCDD440532925AD418B7E /* Pods_magic_ios_demoTests.framework in Frameworks */,
+				F6BBA79C55EF86D0AA7C5D62 /* Pods_magic_ios_cocoapods_demoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +103,10 @@
 				5CECDA849F0BDC59775B7BCB /* Pods-magic-ios-demo.release.xcconfig */,
 				1AE4E7282A1ED6D09C4F30AC /* Pods-magic-ios-demoTests.debug.xcconfig */,
 				A6072224EC906CF8EBB5456B /* Pods-magic-ios-demoTests.release.xcconfig */,
+				240597C32C3227F302D784CD /* Pods-magic-ios-cocoapods-demo.debug.xcconfig */,
+				1ED3FDBE5547F9ED7ED78F59 /* Pods-magic-ios-cocoapods-demo.release.xcconfig */,
+				8C09B1E33C96D32B1920A2D7 /* Pods-magic-ios-cocoapods-demoTests.debug.xcconfig */,
+				1FC5F5F1223D0CA80A143B1B /* Pods-magic-ios-cocoapods-demoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -127,9 +134,9 @@
 		A14B607726959E0A00B1E696 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A14B607626959E0A00B1E696 /* magic-ios-demo.app */,
-				A14B608C26959E0D00B1E696 /* magic-ios-demoTests.xctest */,
-				A14B609726959E0D00B1E696 /* magic-ios-demoUITests.xctest */,
+				A14B607626959E0A00B1E696 /* magic-ios-cocoapods-demo.app */,
+				A14B608C26959E0D00B1E696 /* magic-ios-cocoapods-demoTests.xctest */,
+				A14B609726959E0D00B1E696 /* magic-ios-cocoapods-demoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,10 +151,10 @@
 				A14B607B26959E0A00B1E696 /* SceneDelegate.swift */,
 				A14B607D26959E0A00B1E696 /* ViewController.swift */,
 				A14B608226959E0D00B1E696 /* Assets.xcassets */,
-				A14B608426959E0D00B1E696 /* LaunchScreen.storyboard */,
 				A14B608726959E0D00B1E696 /* Info.plist */,
 			);
-			path = "magic-ios-demo";
+			name = "magic-ios-demo";
+			path = "../Shared-ui/magic-ios-demo";
 			sourceTree = "<group>";
 		};
 		A14B608F26959E0D00B1E696 /* magic-ios-demoTests */ = {
@@ -156,7 +163,8 @@
 				A14B609026959E0D00B1E696 /* magic_ios_demoTests.swift */,
 				A14B609226959E0D00B1E696 /* Info.plist */,
 			);
-			path = "magic-ios-demoTests";
+			name = "magic-ios-demoTests";
+			path = "../Shared-ui/magic-ios-demoTests";
 			sourceTree = "<group>";
 		};
 		A14B609A26959E0D00B1E696 /* magic-ios-demoUITests */ = {
@@ -165,7 +173,8 @@
 				A14B609B26959E0D00B1E696 /* magic_ios_demoUITests.swift */,
 				A14B609D26959E0D00B1E696 /* Info.plist */,
 			);
-			path = "magic-ios-demoUITests";
+			name = "magic-ios-demoUITests";
+			path = "../Shared-ui/magic-ios-demoUITests";
 			sourceTree = "<group>";
 		};
 		A14B60DB269720AD00B1E696 /* Main */ = {
@@ -181,8 +190,8 @@
 		AB2B1A5DEE437E66B620A324 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				758CF87EA85CF0A170D21021 /* Pods_magic_ios_demo.framework */,
-				C3F0F2678AB50C048E0AD5A2 /* Pods_magic_ios_demoTests.framework */,
+				47F454F472FBEA12A7BEF918 /* Pods_magic_ios_cocoapods_demo.framework */,
+				675B0C39D45653AF1E4EB78F /* Pods_magic_ios_cocoapods_demoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,28 +199,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A14B607526959E0A00B1E696 /* magic-ios-demo */ = {
+		A14B607526959E0A00B1E696 /* magic-ios-cocoapods-demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A14B60A026959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-demo" */;
+			buildConfigurationList = A14B60A026959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-cocoapods-demo" */;
 			buildPhases = (
 				2BEF15A9E0B47A9D2D8FC0A4 /* [CP] Check Pods Manifest.lock */,
 				A14B607226959E0A00B1E696 /* Sources */,
 				A14B607326959E0A00B1E696 /* Frameworks */,
 				A14B607426959E0A00B1E696 /* Resources */,
-				C439984A3534073A5761490A /* [CP] Embed Pods Frameworks */,
+				078CF0DF3F188A48E4240421 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "magic-ios-demo";
+			name = "magic-ios-cocoapods-demo";
 			productName = "magic-ios-demo";
-			productReference = A14B607626959E0A00B1E696 /* magic-ios-demo.app */;
+			productReference = A14B607626959E0A00B1E696 /* magic-ios-cocoapods-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A14B608B26959E0D00B1E696 /* magic-ios-demoTests */ = {
+		A14B608B26959E0D00B1E696 /* magic-ios-cocoapods-demoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A14B60A326959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-demoTests" */;
+			buildConfigurationList = A14B60A326959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-cocoapods-demoTests" */;
 			buildPhases = (
 				FEBB59237D21F163E1D3CF37 /* [CP] Check Pods Manifest.lock */,
 				A14B608826959E0D00B1E696 /* Sources */,
@@ -224,14 +233,14 @@
 			dependencies = (
 				A14B608E26959E0D00B1E696 /* PBXTargetDependency */,
 			);
-			name = "magic-ios-demoTests";
+			name = "magic-ios-cocoapods-demoTests";
 			productName = "magic-ios-demoTests";
-			productReference = A14B608C26959E0D00B1E696 /* magic-ios-demoTests.xctest */;
+			productReference = A14B608C26959E0D00B1E696 /* magic-ios-cocoapods-demoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A14B609626959E0D00B1E696 /* magic-ios-demoUITests */ = {
+		A14B609626959E0D00B1E696 /* magic-ios-cocoapods-demoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A14B60A626959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-demoUITests" */;
+			buildConfigurationList = A14B60A626959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-cocoapods-demoUITests" */;
 			buildPhases = (
 				A14B609326959E0D00B1E696 /* Sources */,
 				A14B609426959E0D00B1E696 /* Frameworks */,
@@ -242,9 +251,9 @@
 			dependencies = (
 				A14B609926959E0D00B1E696 /* PBXTargetDependency */,
 			);
-			name = "magic-ios-demoUITests";
+			name = "magic-ios-cocoapods-demoUITests";
 			productName = "magic-ios-demoUITests";
-			productReference = A14B609726959E0D00B1E696 /* magic-ios-demoUITests.xctest */;
+			productReference = A14B609726959E0D00B1E696 /* magic-ios-cocoapods-demoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -269,7 +278,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A14B607126959E0A00B1E696 /* Build configuration list for PBXProject "magic-ios-demo" */;
+			buildConfigurationList = A14B607126959E0A00B1E696 /* Build configuration list for PBXProject "magic-ios-cocoapods-demo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -282,9 +291,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A14B607526959E0A00B1E696 /* magic-ios-demo */,
-				A14B608B26959E0D00B1E696 /* magic-ios-demoTests */,
-				A14B609626959E0D00B1E696 /* magic-ios-demoUITests */,
+				A14B607526959E0A00B1E696 /* magic-ios-cocoapods-demo */,
+				A14B608B26959E0D00B1E696 /* magic-ios-cocoapods-demoTests */,
+				A14B609626959E0D00B1E696 /* magic-ios-cocoapods-demoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -316,6 +325,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		078CF0DF3F188A48E4240421 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2BEF15A9E0B47A9D2D8FC0A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,28 +357,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-magic-ios-demo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-magic-ios-cocoapods-demo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C439984A3534073A5761490A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-demo/Pods-magic-ios-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-demo/Pods-magic-ios-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-magic-ios-demo/Pods-magic-ios-demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E921FD3F6254398AB1515134 /* [CP] Embed Pods Frameworks */ = {
@@ -361,15 +370,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-demoTests/Pods-magic-ios-demoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demoTests/Pods-magic-ios-cocoapods-demoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-demoTests/Pods-magic-ios-demoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demoTests/Pods-magic-ios-cocoapods-demoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-magic-ios-demoTests/Pods-magic-ios-demoTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demoTests/Pods-magic-ios-cocoapods-demoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FEBB59237D21F163E1D3CF37 /* [CP] Check Pods Manifest.lock */ = {
@@ -387,7 +396,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-magic-ios-demoTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-magic-ios-cocoapods-demoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -432,26 +441,15 @@
 /* Begin PBXTargetDependency section */
 		A14B608E26959E0D00B1E696 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A14B607526959E0A00B1E696 /* magic-ios-demo */;
+			target = A14B607526959E0A00B1E696 /* magic-ios-cocoapods-demo */;
 			targetProxy = A14B608D26959E0D00B1E696 /* PBXContainerItemProxy */;
 		};
 		A14B609926959E0D00B1E696 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A14B607526959E0A00B1E696 /* magic-ios-demo */;
+			target = A14B607526959E0A00B1E696 /* magic-ios-cocoapods-demo */;
 			targetProxy = A14B609826959E0D00B1E696 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A14B608426959E0D00B1E696 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A14B608526959E0D00B1E696 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A14B609E26959E0D00B1E696 /* Debug */ = {
@@ -572,13 +570,13 @@
 		};
 		A14B60A126959E0D00B1E696 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFB1A8F3DB6D7F4E60E507C3 /* Pods-magic-ios-demo.debug.xcconfig */;
+			baseConfigurationReference = 240597C32C3227F302D784CD /* Pods-magic-ios-cocoapods-demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RGN5V79T5;
-				INFOPLIST_FILE = "magic-ios-demo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/../Shared-ui/magic-ios-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -592,13 +590,13 @@
 		};
 		A14B60A226959E0D00B1E696 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CECDA849F0BDC59775B7BCB /* Pods-magic-ios-demo.release.xcconfig */;
+			baseConfigurationReference = 1ED3FDBE5547F9ED7ED78F59 /* Pods-magic-ios-cocoapods-demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RGN5V79T5;
-				INFOPLIST_FILE = "magic-ios-demo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/../Shared-ui/magic-ios-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -612,7 +610,7 @@
 		};
 		A14B60A426959E0D00B1E696 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AE4E7282A1ED6D09C4F30AC /* Pods-magic-ios-demoTests.debug.xcconfig */;
+			baseConfigurationReference = 8C09B1E33C96D32B1920A2D7 /* Pods-magic-ios-cocoapods-demoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -629,13 +627,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/magic-ios-demo.app/magic-ios-demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/magic-ios-cocoapods-demo.app/magic-ios-cocoapods-demo";
 			};
 			name = Debug;
 		};
 		A14B60A526959E0D00B1E696 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6072224EC906CF8EBB5456B /* Pods-magic-ios-demoTests.release.xcconfig */;
+			baseConfigurationReference = 1FC5F5F1223D0CA80A143B1B /* Pods-magic-ios-cocoapods-demoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -652,7 +650,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/magic-ios-demo.app/magic-ios-demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/magic-ios-cocoapods-demo.app/magic-ios-cocoapods-demo";
 			};
 			name = Release;
 		};
@@ -699,7 +697,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A14B607126959E0A00B1E696 /* Build configuration list for PBXProject "magic-ios-demo" */ = {
+		A14B607126959E0A00B1E696 /* Build configuration list for PBXProject "magic-ios-cocoapods-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A14B609E26959E0D00B1E696 /* Debug */,
@@ -708,7 +706,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A14B60A026959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-demo" */ = {
+		A14B60A026959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-cocoapods-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A14B60A126959E0D00B1E696 /* Debug */,
@@ -717,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A14B60A326959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-demoTests" */ = {
+		A14B60A326959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-cocoapods-demoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A14B60A426959E0D00B1E696 /* Debug */,
@@ -726,7 +724,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A14B60A626959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-demoUITests" */ = {
+		A14B60A626959E0D00B1E696 /* Build configuration list for PBXNativeTarget "magic-ios-cocoapods-demoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A14B60A726959E0D00B1E696 /* Debug */,

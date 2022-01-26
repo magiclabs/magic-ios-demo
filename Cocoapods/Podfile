@@ -7,21 +7,13 @@ def importPods
     # Make sure to build archives based on the local packages
     # Do `pod update` whenever the version has been updated
     
-    # Distributed Library on Cocoapods
-    pod 'MagicSDK', '~> 2.3'
-    pod 'MagicExt-OAuth', '~> 0.10'
+    # Latest Distributed Library on Cocoapods
+   pod 'MagicSDK'
+   pod 'MagicExt-OAuth'
     
   #   Local development library
-#    pod 'MagicSDK', :path => '../magic-ios/MagicSDK.podspec'
-#    pod 'MagicExt-OAuth', :path => '../magic-ios/MagicExt-OAuth.podspec'
-    
-    # Local built library
-#    pod 'MagicExt-OAuth', :path => '../magic-extension-ios-pod/MagicExt-OAuth.podspec
-#    pod 'MagicSDK', :path => '../magic-ios-pod/MagicSDK.podspec'
-
-#    pod 'MagicSDK-Web3', :path => '../magic-web3-ios-pod/MagicSDK-Web3.podspec'
-#    pod 'MagicSDK-Web3/ContractABI', :path => '../magic-web3-ios-pod/MagicSDK-Web3.podspec'
-#    pod 'MagicSDK-Web3/PromiseKit', :path => '../magic-web3-ios-pod/MagicSDK-Web3.podspec'
+#     pod 'MagicSDK', :path => '../../magic-ios/MagicSDK.podspec'
+#     pod 'MagicExt-OAuth', :path => '../../magic-ios-ext/MagicExt-OAuth.podspec'
 
 
 end
@@ -29,11 +21,11 @@ end
 use_frameworks!
 
 # iOS pod setup
-target 'magic-ios-demo' do
-  platform :ios, '9.0'
+target 'magic-ios-cocoapods-demo' do
+  platform :ios, '10.0'
   importPods
 
-  target 'magic-ios-demoTests' do
+  target 'magic-ios-cocoapods-demoTests' do
     inherit! :search_paths
 
     pod 'Quick', '~> 3.1.2'
