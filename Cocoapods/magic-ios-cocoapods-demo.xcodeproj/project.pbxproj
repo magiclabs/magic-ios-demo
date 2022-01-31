@@ -207,7 +207,7 @@
 				A14B607226959E0A00B1E696 /* Sources */,
 				A14B607326959E0A00B1E696 /* Frameworks */,
 				A14B607426959E0A00B1E696 /* Resources */,
-				078CF0DF3F188A48E4240421 /* [CP] Embed Pods Frameworks */,
+				9DC13A5226F9CA8E3B909FBE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -325,23 +325,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		078CF0DF3F188A48E4240421 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2BEF15A9E0B47A9D2D8FC0A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,6 +345,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DC13A5226F9CA8E3B909FBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-magic-ios-cocoapods-demo/Pods-magic-ios-cocoapods-demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E921FD3F6254398AB1515134 /* [CP] Embed Pods Frameworks */ = {

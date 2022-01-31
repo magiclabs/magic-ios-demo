@@ -10,11 +10,11 @@ def importPods
     # Latest Distributed Library on Cocoapods
    pod 'MagicSDK'
    pod 'MagicExt-OAuth'
-    
+
   #   Local development library
 #     pod 'MagicSDK', :path => '../../magic-ios/MagicSDK.podspec'
 #     pod 'MagicExt-OAuth', :path => '../../magic-ios-ext/MagicExt-OAuth.podspec'
-
+#     pod 'MagicSDK-Web3', :path => '../../Web3.swift/MagicSDK-Web3.podspec'
 
 end
 
