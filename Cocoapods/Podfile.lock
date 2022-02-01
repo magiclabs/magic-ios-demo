@@ -23,13 +23,13 @@ PODS:
     - MagicSDK-Web3/Core
     - PromiseKit/CorePromise (~> 6.0)
   - Nimble (9.0.1)
-  - PromiseKit/CorePromise (6.15.3)
+  - PromiseKit/CorePromise (6.16.3)
   - Quick (3.1.2)
   - secp256k1.swift (0.1.4)
 
 DEPENDENCIES:
-  - MagicExt-OAuth (from `../../magic-ios-ext/MagicExt-OAuth.podspec`)
-  - MagicSDK (from `../../magic-ios/MagicSDK.podspec`)
+  - MagicExt-OAuth
+  - MagicSDK
   - Nimble (~> 9.0.1)
   - Quick (~> 3.1.2)
 
@@ -37,17 +37,13 @@ SPEC REPOS:
   trunk:
     - BigInt
     - CryptoSwift
+    - MagicExt-OAuth
+    - MagicSDK
     - MagicSDK-Web3
     - Nimble
     - PromiseKit
     - Quick
     - secp256k1.swift
-
-EXTERNAL SOURCES:
-  MagicExt-OAuth:
-    :path: "../../magic-ios-ext/MagicExt-OAuth.podspec"
-  MagicSDK:
-    :path: "../../magic-ios/MagicSDK.podspec"
 
 SPEC CHECKSUMS:
   BigInt: f668a80089607f521586bbe29513d708491ef2f7
@@ -56,10 +52,10 @@ SPEC CHECKSUMS:
   MagicSDK: 9c44dd01913cff8154c0fe90ef2e4add0a5c5c0b
   MagicSDK-Web3: 53384d35658f56e909ec84b8644dfa0c637db9b6
   Nimble: 7bed62ffabd6dbfe05f5925cbc43722533248990
-  PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
+  PromiseKit: ed0e2a8e3f3cd59d5d98ca0a6de481a2c5c59c0b
   Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
 
-PODFILE CHECKSUM: ea52a0a4d92e52a61a5cda978fddb5cb2626b21f
+PODFILE CHECKSUM: 11f0b848ac53a67b9e7fd525ec5ffcd21d8d795c
 
 COCOAPODS: 1.11.2
