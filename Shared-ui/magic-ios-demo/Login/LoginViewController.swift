@@ -215,6 +215,21 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         })
     }
     
+    // MARK: - EmailOTP Login
+    func handleEmailOTPLogin() {
+        guard let magic = magic else { return }
+        let config = LoginWithEmailOTPConfiguration(email: self.emailInput.text!)
+  
+        magic.auth.loginWithEmailOTP(config, response: {res in
+            
+            if (res.status.isSuccess) {
+                print(res.result ?? "nil")
+                self.navigateToMain()
+            }
+
+        })
+    }
+    
     
     @IBAction func emailLogin() {
         handleEmailLogin()
@@ -222,6 +237,10 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func SMSLogin() {
         handleSMSLogin()
+    }
+    
+    @IBAction func emailOTPLogin() {
+        handleEmailOTPLogin()
     }
      
      @IBAction func SocialLogin() {
