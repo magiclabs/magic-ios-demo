@@ -14,13 +14,13 @@
 		A1295772279BDE2300F6DB73 /* magic_spm_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1295771279BDE2300F6DB73 /* magic_spm_iosTests.swift */; };
 		A129577C279BDE2300F6DB73 /* magic_spm_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129577B279BDE2300F6DB73 /* magic_spm_iosUITests.swift */; };
 		A129577E279BDE2300F6DB73 /* magic_spm_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129577D279BDE2300F6DB73 /* magic_spm_iosUITestsLaunchTests.swift */; };
-		A1295795279F5EA900F6DB73 /* MagicSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A1295794279F5EA900F6DB73 /* MagicSDK */; };
-		A1295797279F5EAE00F6DB73 /* MagicExt-OAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A1295796279F5EAE00F6DB73 /* MagicExt-OAuth */; };
 		A129579A279F5F5B00F6DB73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1295799279F5F5B00F6DB73 /* LoginViewController.swift */; };
 		A129579F279F5F7B00F6DB73 /* MagicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129579C279F5F7B00F6DB73 /* MagicViewController.swift */; };
 		A12957A0279F5F7B00F6DB73 /* Web3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */; };
 		A12957A1279F5F7B00F6DB73 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */; };
 		A12957A3279F618400F6DB73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12957A2279F618400F6DB73 /* Main.storyboard */; };
+		A12EC10E28B53A6C00A8A8D2 /* MagicExt-OAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A12EC10D28B53A6C00A8A8D2 /* MagicExt-OAuth */; };
+		A12EC11028B53A6C00A8A8D2 /* MagicSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A12EC10F28B53A6C00A8A8D2 /* MagicSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +57,8 @@
 		A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3ViewController.swift; sourceTree = "<group>"; };
 		A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A12957A2279F618400F6DB73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A1BED1282865022100A92B4A /* magic-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "magic-ios"; path = "../../magic-ios"; sourceTree = "<group>"; };
+		A1BED1292865022C00A92B4A /* magic-ios-ext */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "magic-ios-ext"; path = "../../magic-ios-ext"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1295797279F5EAE00F6DB73 /* MagicExt-OAuth in Frameworks */,
-				A1295795279F5EA900F6DB73 /* MagicSDK in Frameworks */,
+				A12EC10E28B53A6C00A8A8D2 /* MagicExt-OAuth in Frameworks */,
+				A12EC11028B53A6C00A8A8D2 /* MagicSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,7 @@
 		A1145CDE2790DA8B003EA520 = {
 			isa = PBXGroup;
 			children = (
+				A145B8B52849BD8C00E237B6 /* Packages */,
 				A1295759279BDE2100F6DB73 /* magic-spm-ios */,
 				A1295770279BDE2300F6DB73 /* magic-spm-iosTests */,
 				A129577A279BDE2300F6DB73 /* magic-spm-iosUITests */,
@@ -167,6 +170,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		A145B8B52849BD8C00E237B6 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A1BED1282865022100A92B4A /* magic-ios */,
+				A1BED1292865022C00A92B4A /* magic-ios-ext */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,8 +196,8 @@
 			);
 			name = "magic-ios-spm-demo";
 			packageProductDependencies = (
-				A1295794279F5EA900F6DB73 /* MagicSDK */,
-				A1295796279F5EAE00F6DB73 /* MagicExt-OAuth */,
+				A12EC10D28B53A6C00A8A8D2 /* MagicExt-OAuth */,
+				A12EC10F28B53A6C00A8A8D2 /* MagicSDK */,
 			);
 			productName = "magic-spm-ios";
 			productReference = A1295758279BDE2100F6DB73 /* magic-ios-spm-demo.app */;
@@ -260,8 +272,6 @@
 			);
 			mainGroup = A1145CDE2790DA8B003EA520;
 			packageReferences = (
-				A1C81964279B550700CBEBE8 /* XCRemoteSwiftPackageReference "magic-ios" */,
-				A1C81967279B6B5900CBEBE8 /* XCRemoteSwiftPackageReference "magic-ios-ext" */,
 			);
 			productRefGroup = A1145CE82790DA8B003EA520 /* Products */;
 			projectDirPath = "";
@@ -477,6 +487,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,7 +496,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "link.magic.magic-spm-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = link.magic.ios.spm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -505,6 +517,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,7 +526,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "link.magic.magic-spm-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = link.magic.ios.spm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -637,35 +651,14 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		A1C81964279B550700CBEBE8 /* XCRemoteSwiftPackageReference "magic-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/magiclabs/magic-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		A1C81967279B6B5900CBEBE8 /* XCRemoteSwiftPackageReference "magic-ios-ext" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/magiclabs/magic-ios-ext.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		A1295794279F5EA900F6DB73 /* MagicSDK */ = {
+		A12EC10D28B53A6C00A8A8D2 /* MagicExt-OAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A1C81964279B550700CBEBE8 /* XCRemoteSwiftPackageReference "magic-ios" */;
-			productName = MagicSDK;
-		};
-		A1295796279F5EAE00F6DB73 /* MagicExt-OAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A1C81967279B6B5900CBEBE8 /* XCRemoteSwiftPackageReference "magic-ios-ext" */;
 			productName = "MagicExt-OAuth";
+		};
+		A12EC10F28B53A6C00A8A8D2 /* MagicSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MagicSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

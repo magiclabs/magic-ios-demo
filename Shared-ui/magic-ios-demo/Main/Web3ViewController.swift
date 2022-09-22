@@ -17,7 +17,7 @@ import Web3PromiseKit
 #endif
 
 
-protocol Web3ViewControllerDelegate: class {}
+protocol Web3ViewControllerDelegate: AnyObject {}
 
 class Web3ViewController: UIViewController {
     
@@ -28,9 +28,17 @@ class Web3ViewController: UIViewController {
         }
         
         weak var delegate: Web3ViewControllerDelegate?
+    
+    var rpcProvider: RpcProvider {
+        if Magic.shared != nil {
+            return Magic.shared.rpcProvider
+        }
+            return MagicConnect.shared.rpcProvider
+    }
         
         /// Instance
-        var web3 = Web3(provider: Magic.shared.rpcProvider)
+        var web3 = Web3(provider: Magic.shared != nil ? Magic.shared.rpcProvider : MagicConnect.shared.rpcProvider)
+//        var web3 = Web3(provider: MagicConnect.shared.rpcProvider)
         
         /// Vars
         var account: EthereumAddress?
@@ -62,8 +70,10 @@ class Web3ViewController: UIViewController {
                 web3.eth.accounts()
             }.done { accounts -> Void in
                 if let account = accounts.first {
+    
                     self.account = account
                     self.accountLabel.text = account.hex(eip55: false)
+                    print(self.accountLabel.text)
                 } else {
                     throw Error.noAccountsFound
                 }
@@ -78,6 +88,7 @@ class Web3ViewController: UIViewController {
         firstly {
             web3.eth.getBalance(address: account!, block: .latest)
         }.done { balance -> Void in
+
             self.showResult(String(balance.hashValue))
         }.catch { error in
             self.showResult("Error loading balance: \(error)")
@@ -89,11 +100,15 @@ class Web3ViewController: UIViewController {
         func sendTestTransaction() {
             
             // Construct transaction
-                let transaction = EthereumTransaction(from: account ?? EthereumAddress(hexString: "0x01568bf1c1699bb9d58fac67f3a487b28ab4ab2d"), to: EthereumAddress(hexString: "0x01568bf1c1699bb9d58fac67f3a487b28ab4ab2d"), value:EthereumQuantity(quantity: 1.gwei))
-                web3.eth.sendTransaction(transaction: transaction).done { (transactionHash) in
-                    self.showResult(transactionHash.hex())
-                }.catch { error in
-                    self.showResult(error.localizedDescription)
+                let transaction = EthereumTransaction(from: account ?? EthereumAddress(hexString: "0xc34b1486b43454faada7cf250b6cda0e514170b4"), to: EthereumAddress(hexString: "0xc34b1486b43454faada7cf250b6cda0e514170b4"), value:EthereumQuantity(quantity: BigUInt(1)))
+//                web3.eth.sendTransaction(transaction: transaction).done { (transactionHash) in
+//                    self.showResult(transactionHash.hex())
+//                }.catch { error in
+//                    self.showResult(error.localizedDescription)
+//                }
+            web3.eth.sendTransaction(transaction: transaction) { ( response: Web3Response<EthereumData>) in
+//                self.showResult(response.result?.hex)
+                self.showResult(response.error.debugDescription)
             }
         }
         
@@ -236,6 +251,7 @@ class Web3ViewController: UIViewController {
                 self.showResult(error.localizedDescription)
             }
         }
+    
         
         
         

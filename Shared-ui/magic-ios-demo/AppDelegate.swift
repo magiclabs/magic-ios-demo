@@ -19,24 +19,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // MARK: - Magic Instantiation
-        Magic.shared = Magic(apiKey: "YOUR_PUBLISHABLE_KEY")
+        Magic.shared = Magic(apiKey: "YOUR_PUBLISHABLE_KEY", customNode: CustomNodeConfiguration(rpcUrl: "https://goerli.optimism.io/", chainId: 5))
+        
+//        MagicConnect.shared = MagicConnect(apiKey: "pk_live_FDE67C5534D449AB", network: EthNetwork.rinkeby)
+        
+        var isMC: Bool {
+            if Magic.shared != nil {
+                return false
+            }
+            if MagicConnect.shared != nil {
+                return true
+            }
+            return true
+        }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
 
         // MARK: - User Session Check
         // if user is logged in before
-        if UserDefaults.standard.string(forKey: "Email") != nil {
-              // instantiate the main tab bar controller and set it as root view controller
-              // using the storyboard identifier we set earlier
-            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
-              window?.rootViewController = mainTabBarController
-          } else {
-              // if user isn't logged in
-              // instantiate the navigation controller and set it as root view controller
-              // using the storyboard identifier we set earlier
-            let loginNavController = storyboard.instantiateViewController(withIdentifier: LoginViewController.storyboardIdentifier)
-              window?.rootViewController = loginNavController
-          }
+        if isMC {
+            window?.rootViewController = mainTabBarController
+        }
+        
+        if !isMC {
+            if UserDefaults.standard.string(forKey: "Email") != nil {
+                // instantiate the main tab bar controller and set it as root view controller
+                // using the storyboard identifier we set earlier
+              
+                window?.rootViewController = mainTabBarController
+            } else {
+                // if user isn't logged in
+                // instantiate the navigation controller and set it as root view controller
+                // using the storyboard identifier we set earlier
+              let loginNavController = storyboard.instantiateViewController(withIdentifier: LoginViewController.storyboardIdentifier)
+                window?.rootViewController = loginNavController
+            }
+        }
+        
+
         
         return true
     }

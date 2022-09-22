@@ -21,15 +21,38 @@ class MagicViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var mcStack: UIStackView!
+    @IBOutlet weak var maStack: UIStackView!
+    
     weak var delegate: MagicViewControllerDelegate?
     
     let magic = Magic.shared
     
-
+    let magicConnect = MagicConnect.shared
+    
     override func viewDidLoad() {
         
         emailLabel.text = UserDefaults.standard.string(forKey: "Email")
+        
+        if (isMC) {
+            maStack.isHidden = true
+            mcStack.isHidden = false
+        } else {
+            mcStack.isHidden = true
+            maStack.isHidden = false
+        }
+        
         super.viewDidLoad()
+    }
+    
+    var isMC: Bool {
+        if magic != nil {
+            return false
+        }
+        if magicConnect != nil {
+            return true
+        }
+        return true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,6 +127,27 @@ class MagicViewController: UIViewController {
     @IBAction func isLoggedIn() {
         guard let magic = magic else { return }
         magic.user.isLoggedIn(response: { response in
+            self.showResult(response.result?.description ?? "")
+        })
+    }
+    
+    @IBAction func showWallet() {
+        guard let magic = magicConnect else { return }
+        magic.connect.showWallet(response: { response in
+            self.showResult(response.result?.description ?? "")
+        })
+    }
+    
+    @IBAction func requestUserInfo() {
+        guard let magic = magicConnect else { return }
+        magic.connect.requestUserInfo(response: { response in
+            self.showResult(response.result?.description ?? "")
+        })
+    }
+    
+    @IBAction func disconnect() {
+        guard let magic = magicConnect else { return }
+        magic.connect.disconnect(response: { response in
             self.showResult(response.result?.description ?? "")
         })
     }
