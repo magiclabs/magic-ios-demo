@@ -6,7 +6,7 @@ def importPods
     # Do `pod install` whenever you swapped to local packages or released packages
     # Make sure to build archives based on the local packages
     # Do `pod update` whenever the version has been updated
-    
+
     # Latest Distributed Library on Cocoapods
    pod 'MagicSDK'
    pod 'MagicExt-OAuth'
