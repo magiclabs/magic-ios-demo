@@ -234,7 +234,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         })
     }
 
-//    // MARK: - OpenId Login
+    // MARK: - OpenId Login
     func handleOpenIdLogin() {
         guard let magic = magic else { return }
 
