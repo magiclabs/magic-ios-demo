@@ -8,12 +8,14 @@ def importPods
     # Do `pod update` whenever the version has been updated
 
     # Latest Distributed Library on Cocoapods
-   pod 'MagicSDK'
-   pod 'MagicExt-OAuth'
+#    pod 'MagicSDK'
+#    pod 'MagicExt-OAuth'
+#   pod 'MagicExt-OIDC'
 
   #   Local development library
-#     pod 'MagicSDK', :path => '../../magic-ios/MagicSDK.podspec'
-#     pod 'MagicExt-OAuth', :path => '../../magic-ios-ext/MagicExt-OAuth.podspec'
+    pod 'MagicSDK', :path => '../../magic-ios/MagicSDK.podspec'
+    pod 'MagicExt-OAuth', :path => '../../magic-ios-ext/MagicExt-OAuth.podspec'
+     pod 'MagicExt-OIDC', :path => '../../magic-ios-ext/MagicExt-OIDC.podspec'
 #     pod 'MagicSDK-Web3', :path => '../../Web3.swift/MagicSDK-Web3.podspec'
 
 end
