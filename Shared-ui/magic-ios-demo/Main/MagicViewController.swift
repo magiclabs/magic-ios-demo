@@ -141,7 +141,7 @@ class MagicViewController: UIViewController {
     @IBAction func requestUserInfo() {
         guard let magic = magicConnect else { return }
         magic.connect.requestUserInfo(response: { response in
-            self.showResult(response.result?.description ?? "")
+            self.showResult(response.result?.email ?? "")
         })
     }
     

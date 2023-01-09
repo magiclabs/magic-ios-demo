@@ -5,7 +5,7 @@ PODS:
     - MagicSDK (~> 4.0)
   - MagicExt-OIDC (1.1.0):
     - MagicSDK (~> 4.0)
-  - MagicSDK (4.2.1):
+  - MagicSDK (4.1.0):
     - MagicSDK-Web3 (~> 1.0)
     - MagicSDK-Web3/ContractABI (~> 1.0)
     - MagicSDK-Web3/PromiseKit (~> 1.0)
@@ -59,13 +59,13 @@ SPEC CHECKSUMS:
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
   MagicExt-OAuth: 6323375187539dbe116df7f930017cf9ebe6324e
   MagicExt-OIDC: 5e5c86b9f7f10c48bc3c34c878d6897157ce890c
-  MagicSDK: 59fb98dfb1cf40293ed78a9d2772811f0bfcf99b
+  MagicSDK: 7ee6c59cf241ba165050d5a922fe4f0d4168aeec
   MagicSDK-Web3: 53384d35658f56e909ec84b8644dfa0c637db9b6
   Nimble: 7bed62ffabd6dbfe05f5925cbc43722533248990
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
 
-PODFILE CHECKSUM: 24dba977ce4bdb6827882095083401e985b405a4
+PODFILE CHECKSUM: e40691fe6a43ce1bac984d6939283a2bd0b4d890
 
 COCOAPODS: 1.11.3

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         // MARK: - Magic Instantiation
         Magic.shared = Magic(apiKey: "YOUR_PUBLISHABLE_KEY", customNode: CustomNodeConfiguration(rpcUrl: "https://goerli.optimism.io/", chainId: 5))
         
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             return true
         }
-        
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
 
@@ -41,12 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isMC {
             window?.rootViewController = mainTabBarController
         }
-        
+
         if !isMC {
             if UserDefaults.standard.string(forKey: "Email") != nil {
                 // instantiate the main tab bar controller and set it as root view controller
                 // using the storyboard identifier we set earlier
-              
+
                 window?.rootViewController = mainTabBarController
             } else {
                 // if user isn't logged in
@@ -56,9 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window?.rootViewController = loginNavController
             }
         }
-        
 
-        
+
+
         return true
     }
 
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let window = self.window else {
             return
         }
-        
+
         // change the root view controller to your specific view controller
         window.rootViewController = vc
     }
