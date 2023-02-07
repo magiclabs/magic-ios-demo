@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ag-9O-QT6">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ag-9O-QT6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,11 +16,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ssk-9p-f3l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AzY-Q4-fJ4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-GJ-2R0">
-                                <rect key="frame" x="91.666666666666686" y="131.33333333333331" width="231" height="633.33333333333348"/>
+                                <rect key="frame" x="184.66666666666663" y="-16.666666666666686" width="231" height="633.33333333333348"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic.link Example" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NdP-Eu-3FU">
                                         <rect key="frame" x="0.0" y="0.0" width="231" height="33.666666666666664"/>
@@ -29,13 +28,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jerry@magic.link" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7Q-im-lD1">
-                                        <rect key="frame" x="47.999999999999986" y="61.666666666666657" width="135" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="arian.flores@magic.link" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7Q-im-lD1">
+                                        <rect key="frame" x="26.333333333333343" y="61.666666666666671" width="178" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-Cb-Ee5">
-                                        <rect key="frame" x="70.999999999999986" y="123.66666666666666" width="89.000000000000014" height="33"/>
+                                        <rect key="frame" x="71" y="123.66666666666669" width="89" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Email Login"/>
                                         <connections>
@@ -43,7 +42,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD9-rb-j62">
-                                        <rect key="frame" x="51.999999999999986" y="184.66666666666666" width="127.00000000000001" height="33"/>
+                                        <rect key="frame" x="52" y="184.66666666666666" width="127" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Email OTP Login"/>
                                         <connections>
@@ -51,12 +50,12 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+18888888888" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AqZ-bx-lah">
-                                        <rect key="frame" x="49.999999999999986" y="245.66666666666663" width="131" height="34"/>
+                                        <rect key="frame" x="50" y="245.66666666666663" width="131" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yc0-Vo-Zvr">
-                                        <rect key="frame" x="73.999999999999986" y="307.66666666666663" width="83.000000000000014" height="33"/>
+                                        <rect key="frame" x="74.000000000000028" y="307.66666666666669" width="83" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="SMS Login"/>
                                         <connections>
@@ -64,12 +63,12 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="GOOGLE 🔽" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJy-6p-wUn">
-                                        <rect key="frame" x="74.333333333333329" y="368.66666666666663" width="81.999999999999986" height="18.666666666666686"/>
+                                        <rect key="frame" x="74.333333333333343" y="368.66666666666669" width="82" height="18.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDh-kS-27c">
-                                        <rect key="frame" x="68.333333333333329" y="415.33333333333326" width="93.999999999999986" height="33"/>
+                                        <rect key="frame" x="68.333333333333343" y="415.33333333333337" width="94" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Social Login"/>
                                         <connections>
@@ -77,17 +76,17 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Provider ID" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqg-Di-ho9">
-                                        <rect key="frame" x="65.333333333333329" y="476.33333333333326" width="99.999999999999986" height="34"/>
+                                        <rect key="frame" x="65.333333333333343" y="476.33333333333337" width="100" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jwt" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAS-aq-WFY">
-                                        <rect key="frame" x="91.999999999999986" y="538.33333333333326" width="47.000000000000014" height="34"/>
+                                        <rect key="frame" x="92.000000000000028" y="538.33333333333326" width="47" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48b-l8-f9A">
-                                        <rect key="frame" x="63.333333333333329" y="600.33333333333326" width="103.99999999999999" height="33"/>
+                                        <rect key="frame" x="63.333333333333343" y="600.33333333333326" width="104" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="OpenId Login"/>
                                         <connections>
@@ -125,49 +124,58 @@
                         <viewControllerLayoutGuide type="bottom" id="fWL-34-Hay"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pU1-aU-HGs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TxH-gF-Dz6">
-                                <rect key="frame" x="130" y="338" width="154" height="220"/>
+                                <rect key="frame" x="130" y="171" width="340" height="258"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL9-cY-qK2">
-                                        <rect key="frame" x="0.0" y="0.0" width="154" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="30"/>
                                         <state key="normal" title="getMetadata"/>
                                         <connections>
                                             <action selector="getMetaData" destination="Be8-9n-060" eventType="touchUpInside" id="3QO-je-O5p"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxj-U3-4gX">
-                                        <rect key="frame" x="0.0" y="38" width="154" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="340" height="30"/>
                                         <state key="normal" title="getIdToken"/>
                                         <connections>
                                             <action selector="getIdToken" destination="Be8-9n-060" eventType="touchUpInside" id="k6E-fo-njW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHt-iO-yEH">
-                                        <rect key="frame" x="0.0" y="76" width="154" height="30"/>
+                                        <rect key="frame" x="0.0" y="76" width="340" height="30"/>
                                         <state key="normal" title="isLoggedIn"/>
                                         <connections>
                                             <action selector="isLoggedIn" destination="Be8-9n-060" eventType="touchUpInside" id="YS3-We-xsa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niC-2a-EDX">
-                                        <rect key="frame" x="0.0" y="114" width="154" height="30"/>
+                                        <rect key="frame" x="0.0" y="114" width="340" height="30"/>
                                         <state key="normal" title="updateEmail"/>
                                         <connections>
                                             <action selector="updateEmail" destination="Be8-9n-060" eventType="touchUpInside" id="lJU-ZO-Zh7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cL-U9-1Uk">
-                                        <rect key="frame" x="0.0" y="152" width="154" height="30"/>
+                                        <rect key="frame" x="0.0" y="152" width="340" height="30"/>
                                         <state key="normal" title="generateIdToken"/>
                                         <connections>
                                             <action selector="generateIdToken" destination="Be8-9n-060" eventType="touchUpInside" id="h9r-kS-y7e"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ml-zW-nYA">
+                                        <rect key="frame" x="0.0" y="190" width="340" height="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Show MFA"/>
+                                        <connections>
+                                            <action selector="showMFA" destination="Be8-9n-060" eventType="touchUpInside" id="5bP-j6-kAT"/>
+                                            <action selector="showMFA" destination="uJT-VJ-7WT" eventType="touchUpInside" id="eTP-eK-J3w"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azo-BE-wVR">
-                                        <rect key="frame" x="0.0" y="190" width="154" height="30"/>
+                                        <rect key="frame" x="0.0" y="228" width="340" height="30"/>
                                         <state key="normal" title="Logout"/>
                                         <connections>
                                             <action selector="logOut" destination="Be8-9n-060" eventType="touchUpInside" id="2VD-JO-Qa0"/>
@@ -176,13 +184,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejS-kE-3J5">
-                                <rect key="frame" x="175.33333333333334" y="199" width="63.333333333333343" height="17"/>
+                                <rect key="frame" x="268.33333333333331" y="155" width="63.333333333333314" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Login As" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwY-VE-aMi">
-                                <rect key="frame" x="160" y="173" width="94" height="18"/>
+                                <rect key="frame" x="253" y="129" width="94" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="EHf-xb-sdr"/>
                                 </constraints>
@@ -209,19 +217,20 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sqs-0g-cWj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="uJT-VJ-7WT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2751" y="501"/>
         </scene>
         <!--Web3-->
         <scene sceneID="MSu-Rt-LUe">
             <objects>
-                <viewController storyboardIdentifier="web3" id="u7D-OT-frt" customClass="Web3ViewController" customModule="magic_ios_cocoapods_demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Web3" id="u7D-OT-frt" customClass="Web3ViewController" customModule="magic_ios_cocoapods_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="puW-Rn-ist"/>
                         <viewControllerLayoutGuide type="bottom" id="DcO-Hj-zq9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FZh-11-ZLG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOR-Ys-pEX">
@@ -271,7 +280,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COM-me-LAm">
                                         <rect key="frame" x="0.0" y="114" width="126" height="30"/>
-                                        <state key="normal" title="web3.net.version"/>
+                                        <state key="normal" title="Web3.net.version"/>
                                         <connections>
                                             <action selector="getNetwork" destination="u7D-OT-frt" eventType="touchUpInside" id="qQI-kW-1tb"/>
                                         </connections>

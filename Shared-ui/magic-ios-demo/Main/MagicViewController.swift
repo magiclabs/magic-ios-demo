@@ -5,6 +5,7 @@
 //  Copyright © 2020 Magic Labs. All rights reserved.
 
 import UIKit
+import PromiseKit
 import MagicSDK_Web3
 
 import MagicSDK
@@ -106,5 +107,16 @@ class MagicViewController: UIViewController {
         magic.user.isLoggedIn(response: { response in
             self.showResult(response.result?.description ?? "")
         })
+    }
+    
+    @IBAction func showMFA() {
+        guard let magic = magic else { return }
+        firstly {
+            magic.user.showSettings()
+        }.done { result -> Void in
+            print("result: \(result)")
+        }.catch { error in
+            print("Error", error)
+        }
     }
 }
