@@ -10,6 +10,9 @@ Features
 
 **OAuth Login**:Authenticate a user via oauth providers
 
+**MFA**:
+Multi-factor authentication is a common technique used to add an additional layer of security to an account. Magic currently offers end-user MFA through mobile authenticator apps like Authy or Google Authenticator. This is currently supported for email and SMS primary factors.
+
 **Eth SendTransaction**:
 We support blockchain interactions on iOS just like how you do it in the browser. 
 
