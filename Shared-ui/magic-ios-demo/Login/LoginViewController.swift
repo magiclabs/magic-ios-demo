@@ -249,6 +249,20 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
         })
     }
+    
+    // MARK: - Recover Account
+    func handleRecoverAccount() {
+        guard let magic = magic else { return }
+
+        magic.user.recoverAccount(response: {res in
+
+            if (res.status.isSuccess) {
+                print(res.result ?? "nil")
+                self.navigateToMain()
+            }
+
+        })
+    }
 
 
     @IBAction func emailLogin() {
@@ -267,7 +281,10 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         handleOpenIdLogin()
     }
 
-     @IBAction func SocialLogin() {
+    @IBAction func recoverAccount() {
+        handleRecoverAccount()
+    }
+    @IBAction func SocialLogin() {
 
           handleSocialLogin(provider: OAuthProvider.allCases[selectedRow])
      }
