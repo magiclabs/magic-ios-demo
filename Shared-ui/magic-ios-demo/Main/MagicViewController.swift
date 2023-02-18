@@ -101,6 +101,13 @@ class MagicViewController: UIViewController {
         })
     }
     
+    @IBAction func updateSms() {
+        guard let magic = magic else { return }
+        magic.user.updatePhoneNumber(response: { response in
+            self.showResult(response.result ?? "")
+        })
+    }
+    
     @IBAction func isLoggedIn() {
         guard let magic = magic else { return }
         magic.user.isLoggedIn(response: { response in
