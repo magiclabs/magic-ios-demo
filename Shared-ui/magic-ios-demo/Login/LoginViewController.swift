@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     // outlets
     @IBOutlet weak var emailInput: UITextField!
+    @IBOutlet weak var recoveryEmailInput: UITextField!
     @IBOutlet weak var phoneInput: UITextField!
 
     @IBOutlet var providerPicker: UITextField!
@@ -254,17 +255,18 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func handleRecoverAccount() {
         guard let magic = magic else { return }
 
-        magic.user.recoverAccount(response: {res in
-
+        let configuration = RecoverAccountConfiguration(email: self.recoveryEmailInput.text!)
+        
+        magic.user.recoverAccount(configuration, response: { res in
             if (res.status.isSuccess) {
                 print(res.result ?? "nil")
                 self.navigateToMain()
+            } else {
+                self.showResult("Email not associated with this Api Key")
             }
-
         })
     }
-
-
+    
     @IBAction func emailLogin() {
         handleEmailLogin()
     }
