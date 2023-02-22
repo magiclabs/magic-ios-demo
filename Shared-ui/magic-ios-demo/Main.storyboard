@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-GJ-2R0">
-                                <rect key="frame" x="91.666666666666686" y="131.33333333333331" width="231" height="633.33333333333348"/>
+                                <rect key="frame" x="91.666666666666686" y="70" width="231" height="756.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic.link Example" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NdP-Eu-3FU">
                                         <rect key="frame" x="0.0" y="0.0" width="231" height="33.666666666666664"/>
@@ -51,12 +51,12 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+18888888888" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AqZ-bx-lah">
-                                        <rect key="frame" x="49.999999999999986" y="245.66666666666663" width="131" height="34"/>
+                                        <rect key="frame" x="49.999999999999986" y="245.66666666666669" width="131" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yc0-Vo-Zvr">
-                                        <rect key="frame" x="73.999999999999986" y="307.66666666666663" width="83.000000000000014" height="33"/>
+                                        <rect key="frame" x="73.999999999999986" y="307.66666666666669" width="83.000000000000014" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="SMS Login"/>
                                         <connections>
@@ -64,12 +64,12 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="GOOGLE 🔽" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MJy-6p-wUn">
-                                        <rect key="frame" x="74.333333333333329" y="368.66666666666663" width="81.999999999999986" height="18.666666666666686"/>
+                                        <rect key="frame" x="74.333333333333329" y="368.66666666666669" width="81.999999999999986" height="18.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDh-kS-27c">
-                                        <rect key="frame" x="68.333333333333329" y="415.33333333333326" width="93.999999999999986" height="33"/>
+                                        <rect key="frame" x="68.333333333333329" y="415.33333333333331" width="93.999999999999986" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Social Login"/>
                                         <connections>
@@ -77,21 +77,34 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Provider ID" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqg-Di-ho9">
-                                        <rect key="frame" x="65.333333333333329" y="476.33333333333326" width="99.999999999999986" height="34"/>
+                                        <rect key="frame" x="65.333333333333329" y="476.33333333333337" width="99.999999999999986" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jwt" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAS-aq-WFY">
-                                        <rect key="frame" x="91.999999999999986" y="538.33333333333326" width="47.000000000000014" height="34"/>
+                                        <rect key="frame" x="91.999999999999986" y="538.33333333333337" width="47.000000000000014" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48b-l8-f9A">
-                                        <rect key="frame" x="63.333333333333329" y="600.33333333333326" width="103.99999999999999" height="33"/>
+                                        <rect key="frame" x="63.333333333333329" y="600.33333333333337" width="103.99999999999999" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="OpenId Login"/>
                                         <connections>
                                             <action selector="openIdLogin" destination="3ag-9O-QT6" eventType="touchUpInside" id="P8n-pY-7h6"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hiro@magic.link" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRS-An-QBB" userLabel="Recovery Email">
+                                        <rect key="frame" x="48.999999999999986" y="661.33333333333337" width="133" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YB-xN-6Sg">
+                                        <rect key="frame" x="48.999999999999986" y="723.33333333333337" width="133" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <state key="normal" title="Recover Account"/>
+                                        <connections>
+                                            <action selector="recoverAccount" destination="3ag-9O-QT6" eventType="touchUpInside" id="8FP-NR-MuY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -110,6 +123,7 @@
                         <outlet property="phoneInput" destination="AqZ-bx-lah" id="sXu-9J-g5l"/>
                         <outlet property="providerId" destination="vqg-Di-ho9" id="1mu-na-FWI"/>
                         <outlet property="providerPicker" destination="MJy-6p-wUn" id="Lu5-HO-NnX"/>
+                        <outlet property="recoveryEmailInput" destination="KRS-An-QBB" id="6Zz-Ho-CLp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNn-2A-8DG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TxH-gF-Dz6">
-                                <rect key="frame" x="130" y="319" width="154" height="258"/>
+                                <rect key="frame" x="130" y="300" width="154" height="296"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL9-cY-qK2">
                                         <rect key="frame" x="0.0" y="0.0" width="154" height="30"/>
@@ -166,15 +180,22 @@
                                             <action selector="updateSms" destination="Be8-9n-060" eventType="touchUpInside" id="8PI-Zv-oQn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cL-U9-1Uk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpJ-yd-q2c">
                                         <rect key="frame" x="0.0" y="190" width="154" height="30"/>
+                                        <state key="normal" title="show settings"/>
+                                        <connections>
+                                            <action selector="showSettings" destination="Be8-9n-060" eventType="touchUpInside" id="FCV-iq-l5S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cL-U9-1Uk">
+                                        <rect key="frame" x="0.0" y="228" width="154" height="30"/>
                                         <state key="normal" title="generateIdToken"/>
                                         <connections>
                                             <action selector="generateIdToken" destination="Be8-9n-060" eventType="touchUpInside" id="h9r-kS-y7e"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azo-BE-wVR">
-                                        <rect key="frame" x="0.0" y="228" width="154" height="30"/>
+                                        <rect key="frame" x="0.0" y="266" width="154" height="30"/>
                                         <state key="normal" title="Logout"/>
                                         <connections>
                                             <action selector="logOut" destination="Be8-9n-060" eventType="touchUpInside" id="2VD-JO-Qa0"/>

@@ -108,6 +108,10 @@ class MagicViewController: UIViewController {
         })
     }
     
+    @IBAction func showSettings() {
+        guard let magic = magic else { return }
+        magic.user.showSettings()
+    }
     @IBAction func isLoggedIn() {
         guard let magic = magic else { return }
         magic.user.isLoggedIn(response: { response in
