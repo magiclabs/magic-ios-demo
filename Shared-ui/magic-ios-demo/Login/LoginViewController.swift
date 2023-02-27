@@ -267,6 +267,26 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         })
     }
     
+    // MARK: - Magic Connect Login
+    func handleMCLogin() {
+        guard let magic = magic else { return }
+        
+        magic.wallet.connectWithUI(response: { res in
+            if (res.status.isSuccess) {
+                print(res.result ?? "nil")
+                
+                let defaults = UserDefaults.standard
+                if let publicAddress = res.result?.first {
+                    defaults.set(publicAddress, forKey: "publicAddress")
+                    self.navigateToMain()
+                }
+            }
+        })
+    }
+    
+    @IBAction func magicConnectLogin() {
+        handleMCLogin()
+    }
     @IBAction func emailLogin() {
         handleEmailLogin()
     }
