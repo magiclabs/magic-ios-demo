@@ -70,7 +70,7 @@ class MagicViewController: UIViewController {
     @IBAction func updateEmail() {
         
         guard let magic = magic else { return }
-        let configuration = UpdateEmailConfiguration(email: "jerry@magic.link")
+        let configuration = UpdateEmailConfiguration(email: "hiro@magic.link")
         
         magic.user.updateEmail(configuration, eventLog: true)
             .once(eventName: "email-not-deliverable"){
@@ -82,48 +82,6 @@ class MagicViewController: UIViewController {
             }).catch({ error in
                 print(error)
             })
-    }
-    
-    // MARK: - Magic Connect Methods
-    @IBAction func showUI() {
-        guard let magic = magic else { return }
-        magic.wallet.showUI(response: { response in
-                if (response.error != nil) {
-                    print(response.error.debugDescription)
-                }
-                print(response.result?.description ?? "")
-            })
-    }
-
-    @IBAction func getInfo() {
-        guard let magic = magic else { return }
-        magic.wallet.getInfo(response: { response in
-            if (response.error != nil) {
-                print(response.error.debugDescription)
-            }
-            self.showResult("Wallet Type: \(response.result?.walletType ?? "No Wallet Type Found")")
-        })
-    }
-
-
-    @IBAction func requestUserInfoWithUI() {
-        guard let magic = magic else { return }
-        magic.wallet.requestUserInfoWithUI(response: { response in
-            if (response.error != nil) {
-                print(response.error.debugDescription)
-            }
-            self.showResult("Email: \(response.result?.email ?? "No Email Found")")
-       })
-    }
-    
-    @IBAction func disconnect() {
-        guard let magic = magic else { return }
-        
-        magic.wallet.disconnect(response: { response in
-            print(response.result?.description ?? "")
-            UserDefaults.standard.removeObject(forKey: "publicAddress")
-            self.navigateToLogin()
-        })
     }
 
     

@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNn-2A-8DG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1256.521739130435" y="500.89285714285711"/>
+            <point key="canvasLocation" x="1238" y="501"/>
         </scene>
         <!--Magic-->
         <scene sceneID="WEt-MW-kqk">
@@ -178,56 +178,22 @@
                                 <rect key="frame" x="20" y="44" width="374" height="769"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TxH-gF-Dz6">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="582.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="388.66666666666669"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic Connect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ixj-JH-E9o">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic Auth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-ri-mIE">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="33.666666666666664"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivW-l7-Xko">
-                                                <rect key="frame" x="0.0" y="41.666666666666671" width="374" height="30"/>
-                                                <state key="normal" title="showUI"/>
-                                                <connections>
-                                                    <action selector="showUI" destination="Be8-9n-060" eventType="touchUpInside" id="sQj-Rw-h7C"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSM-gC-wUi">
-                                                <rect key="frame" x="0.0" y="79.666666666666671" width="374" height="30"/>
-                                                <state key="normal" title="getInfo"/>
-                                                <connections>
-                                                    <action selector="getInfo" destination="Be8-9n-060" eventType="touchUpInside" id="lIs-tm-at7"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hur-bF-TpP">
-                                                <rect key="frame" x="0.0" y="117.66666666666666" width="374" height="30"/>
-                                                <state key="normal" title="requestUserInfoWithUI"/>
-                                                <connections>
-                                                    <action selector="requestUserInfoWithUI" destination="Be8-9n-060" eventType="touchUpInside" id="Sis-ig-kcf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9Y-vl-EQS">
-                                                <rect key="frame" x="0.0" y="155.66666666666666" width="374" height="30"/>
-                                                <state key="normal" title="disconnect"/>
-                                                <connections>
-                                                    <action selector="disconnect" destination="Be8-9n-060" eventType="touchUpInside" id="xf1-L9-G9r"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic Auth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-ri-mIE">
-                                                <rect key="frame" x="0.0" y="193.66666666666666" width="374" height="33.666666666666657"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejS-kE-3J5">
-                                                <rect key="frame" x="0.0" y="235.33333333333331" width="374" height="17"/>
+                                                <rect key="frame" x="0.0" y="41.666666666666671" width="374" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Login As" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwY-VE-aMi">
-                                                <rect key="frame" x="0.0" y="260.33333333333331" width="374" height="18"/>
+                                                <rect key="frame" x="0.0" y="66.666666666666671" width="374" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="94" id="EHf-xb-sdr"/>
                                                 </constraints>
@@ -236,67 +202,62 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL9-cY-qK2">
-                                                <rect key="frame" x="0.0" y="286.33333333333331" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="92.666666666666657" width="374" height="30"/>
                                                 <state key="normal" title="getMetadata"/>
                                                 <connections>
                                                     <action selector="getMetaData" destination="Be8-9n-060" eventType="touchUpInside" id="3QO-je-O5p"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxj-U3-4gX">
-                                                <rect key="frame" x="0.0" y="324.33333333333331" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="130.66666666666666" width="374" height="30"/>
                                                 <state key="normal" title="getIdToken"/>
                                                 <connections>
                                                     <action selector="getIdToken" destination="Be8-9n-060" eventType="touchUpInside" id="k6E-fo-njW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHt-iO-yEH">
-                                                <rect key="frame" x="0.0" y="362.33333333333331" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="168.66666666666666" width="374" height="30"/>
                                                 <state key="normal" title="isLoggedIn"/>
                                                 <connections>
                                                     <action selector="isLoggedIn" destination="Be8-9n-060" eventType="touchUpInside" id="YS3-We-xsa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niC-2a-EDX">
-                                                <rect key="frame" x="0.0" y="400.33333333333331" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="206.66666666666666" width="374" height="30"/>
                                                 <state key="normal" title="updateEmail"/>
                                                 <connections>
                                                     <action selector="updateEmail" destination="Be8-9n-060" eventType="touchUpInside" id="lJU-ZO-Zh7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yf-nE-xvK">
-                                                <rect key="frame" x="0.0" y="438.33333333333331" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="244.66666666666669" width="374" height="30"/>
                                                 <state key="normal" title="updateSms"/>
                                                 <connections>
                                                     <action selector="updateSms" destination="Be8-9n-060" eventType="touchUpInside" id="8PI-Zv-oQn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpJ-yd-q2c">
-                                                <rect key="frame" x="0.0" y="476.33333333333337" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="282.66666666666669" width="374" height="30"/>
                                                 <state key="normal" title="show settings"/>
                                                 <connections>
                                                     <action selector="showSettings" destination="Be8-9n-060" eventType="touchUpInside" id="FCV-iq-l5S"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cL-U9-1Uk">
-                                                <rect key="frame" x="0.0" y="514.33333333333337" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="320.66666666666669" width="374" height="30"/>
                                                 <state key="normal" title="generateIdToken"/>
                                                 <connections>
                                                     <action selector="generateIdToken" destination="Be8-9n-060" eventType="touchUpInside" id="h9r-kS-y7e"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azo-BE-wVR">
-                                                <rect key="frame" x="0.0" y="552.33333333333337" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="358.66666666666669" width="374" height="30"/>
                                                 <state key="normal" title="Logout"/>
                                                 <connections>
                                                     <action selector="logOut" destination="Be8-9n-060" eventType="touchUpInside" id="2VD-JO-Qa0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="rpf-ri-mIE" firstAttribute="top" secondItem="R9Y-vl-EQS" secondAttribute="bottom" constant="1000" id="8BF-eU-04Q"/>
-                                            <constraint firstItem="rpf-ri-mIE" firstAttribute="top" secondItem="R9Y-vl-EQS" secondAttribute="bottom" constant="10" id="IvW-6y-8zc"/>
-                                            <constraint firstItem="rpf-ri-mIE" firstAttribute="top" secondItem="R9Y-vl-EQS" secondAttribute="bottom" constant="100" id="gCh-c9-G0a"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -471,7 +432,91 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKR-wm-laH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3495.652173913044" y="500.89285714285711"/>
+            <point key="canvasLocation" x="4346" y="501"/>
+        </scene>
+        <!--Magic Connect-->
+        <scene sceneID="gEi-kg-7D6">
+            <objects>
+                <viewController storyboardIdentifier="MagicConnect" id="zuc-28-p36" customClass="MagicConnectViewController" customModule="magic_ios_cocoapods_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MRT-XC-x0F"/>
+                        <viewControllerLayoutGuide type="bottom" id="G8I-th-yAq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xJj-8e-nat">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5y4-di-xf3">
+                                <rect key="frame" x="20" y="44" width="385" height="769"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GIL-jO-JIL">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="153.66666666666666"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic Connect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pN2-k3-Leb">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="33.666666666666664"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiF-d5-Pkk">
+                                                <rect key="frame" x="0.0" y="33.666666666666671" width="374" height="30"/>
+                                                <state key="normal" title="showUI"/>
+                                                <connections>
+                                                    <action selector="showUI" destination="zuc-28-p36" eventType="touchUpInside" id="WG5-un-M8o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ch-cb-3cj">
+                                                <rect key="frame" x="0.0" y="63.666666666666657" width="374" height="30"/>
+                                                <state key="normal" title="getInfo"/>
+                                                <connections>
+                                                    <action selector="getInfo" destination="zuc-28-p36" eventType="touchUpInside" id="gWC-ao-y63"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyU-6I-oyF">
+                                                <rect key="frame" x="0.0" y="93.666666666666657" width="374" height="30"/>
+                                                <state key="normal" title="requestUserInfoWithUI"/>
+                                                <connections>
+                                                    <action selector="requestUserInfoWithUI" destination="zuc-28-p36" eventType="touchUpInside" id="pTR-yq-sAx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEB-f6-f8s">
+                                                <rect key="frame" x="0.0" y="123.66666666666666" width="374" height="30"/>
+                                                <state key="normal" title="disconnect"/>
+                                                <connections>
+                                                    <action selector="disconnect" destination="zuc-28-p36" eventType="touchUpInside" id="zQ3-sg-a9c"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GIL-jO-JIL" firstAttribute="centerY" secondItem="fxe-rK-uZb" secondAttribute="centerY" id="7Zt-T2-as5"/>
+                                    <constraint firstItem="GIL-jO-JIL" firstAttribute="centerY" secondItem="fxe-rK-uZb" secondAttribute="centerY" id="B06-vk-bhh"/>
+                                    <constraint firstItem="GIL-jO-JIL" firstAttribute="centerX" secondItem="UWY-AO-kib" secondAttribute="centerX" id="Nu9-zb-HT8"/>
+                                    <constraint firstAttribute="bottom" secondItem="GIL-jO-JIL" secondAttribute="bottom" id="Tu1-2F-FEp"/>
+                                    <constraint firstAttribute="trailing" secondItem="GIL-jO-JIL" secondAttribute="trailing" id="fVA-YJ-kMF"/>
+                                    <constraint firstItem="GIL-jO-JIL" firstAttribute="centerX" secondItem="fxe-rK-uZb" secondAttribute="centerX" id="m1F-Sc-oYH"/>
+                                    <constraint firstItem="GIL-jO-JIL" firstAttribute="leading" secondItem="5y4-di-xf3" secondAttribute="leading" id="qRu-Nj-Hwj"/>
+                                    <constraint firstItem="GIL-jO-JIL" firstAttribute="top" secondItem="5y4-di-xf3" secondAttribute="top" id="vkq-Uh-Lst"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="fxe-rK-uZb"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="UWY-AO-kib"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5y4-di-xf3" firstAttribute="leading" secondItem="xJj-8e-nat" secondAttribute="leadingMargin" id="1Nu-6C-Ffq"/>
+                            <constraint firstItem="G8I-th-yAq" firstAttribute="top" secondItem="5y4-di-xf3" secondAttribute="bottom" id="AhI-G4-33U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5y4-di-xf3" secondAttribute="trailing" id="ROZ-T5-leG"/>
+                            <constraint firstItem="5y4-di-xf3" firstAttribute="centerX" secondItem="xJj-8e-nat" secondAttribute="centerX" id="iRc-xH-Zeq"/>
+                            <constraint firstItem="5y4-di-xf3" firstAttribute="centerY" secondItem="xJj-8e-nat" secondAttribute="centerY" id="ywT-DQ-3Bq"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Magic Connect" image="link" catalog="system" selectedImage="link" id="3my-f3-Eic"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NiR-nt-QuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3563.7681159420295" y="500.89285714285711"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="IgC-fX-ukf">
@@ -486,6 +531,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Be8-9n-060" kind="relationship" relationship="viewControllers" id="DfG-QF-N4I"/>
+                        <segue destination="zuc-28-p36" kind="relationship" relationship="viewControllers" id="qBj-iX-SAz"/>
                         <segue destination="u7D-OT-frt" kind="relationship" relationship="viewControllers" id="BRm-Aa-6ia"/>
                     </connections>
                 </tabBarController>
@@ -496,6 +542,7 @@
     </scenes>
     <resources>
         <image name="globe" catalog="system" width="128" height="123"/>
+        <image name="link" catalog="system" width="128" height="124"/>
         <image name="wand.and.rays" catalog="system" width="128" height="123"/>
         <image name="wand.and.rays.inverse" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

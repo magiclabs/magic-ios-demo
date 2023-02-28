@@ -22,6 +22,7 @@
 		A12957A0279F5F7B00F6DB73 /* Web3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */; };
 		A12957A1279F5F7B00F6DB73 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */; };
 		A12957A3279F618400F6DB73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12957A2279F618400F6DB73 /* Main.storyboard */; };
+		AB5865C629AD6D3D00CCFF3A /* MagicConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5865C529AD6D3D00CCFF3A /* MagicConnectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3ViewController.swift; sourceTree = "<group>"; };
 		A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A12957A2279F618400F6DB73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AB5865C529AD6D3D00CCFF3A /* MagicConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicConnectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				A129579C279F5F7B00F6DB73 /* MagicViewController.swift */,
 				A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */,
 				A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */,
+				AB5865C529AD6D3D00CCFF3A /* MagicConnectViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				A129579A279F5F5B00F6DB73 /* LoginViewController.swift in Sources */,
 				A129579F279F5F7B00F6DB73 /* MagicViewController.swift in Sources */,
+				AB5865C629AD6D3D00CCFF3A /* MagicConnectViewController.swift in Sources */,
 				A129575F279BDE2100F6DB73 /* ViewController.swift in Sources */,
 				A12957A1279F5F7B00F6DB73 /* MainTabBarController.swift in Sources */,
 				A12957A0279F5F7B00F6DB73 /* Web3ViewController.swift in Sources */,
