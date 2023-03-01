@@ -18,6 +18,7 @@
 		A14B60E1269720AE00B1E696 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B60DE269720AD00B1E696 /* MainTabBarController.swift */; };
 		A14B60E3269720CB00B1E696 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B60E2269720CB00B1E696 /* LoginViewController.swift */; };
 		A1F544D2269996750011BAB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F544D1269996750011BAB0 /* Main.storyboard */; };
+		AB732D5B29B002BC005B5E1C /* MagicConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB732D5A29B002BC005B5E1C /* MagicConnectViewController.swift */; };
 		CDF9827CC61F56EB063602AB /* Pods_magic_ios_cocoapods_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F454F472FBEA12A7BEF918 /* Pods_magic_ios_cocoapods_demo.framework */; };
 		F6BBA79C55EF86D0AA7C5D62 /* Pods_magic_ios_cocoapods_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675B0C39D45653AF1E4EB78F /* Pods_magic_ios_cocoapods_demoTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		A14B60E2269720CB00B1E696 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A1F544D1269996750011BAB0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A6072224EC906CF8EBB5456B /* Pods-magic-ios-demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-demoTests.release.xcconfig"; path = "Target Support Files/Pods-magic-ios-demoTests/Pods-magic-ios-demoTests.release.xcconfig"; sourceTree = "<group>"; };
+		AB732D5A29B002BC005B5E1C /* MagicConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicConnectViewController.swift; sourceTree = "<group>"; };
 		FFB1A8F3DB6D7F4E60E507C3 /* Pods-magic-ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-magic-ios-demo.debug.xcconfig"; path = "Target Support Files/Pods-magic-ios-demo/Pods-magic-ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 				A14B60DC269720AD00B1E696 /* MagicViewController.swift */,
 				A14B60DD269720AD00B1E696 /* Web3ViewController.swift */,
 				A14B60DE269720AD00B1E696 /* MainTabBarController.swift */,
+				AB732D5A29B002BC005B5E1C /* MagicConnectViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			files = (
 				A14B60E3269720CB00B1E696 /* LoginViewController.swift in Sources */,
 				A14B60DF269720AE00B1E696 /* MagicViewController.swift in Sources */,
+				AB732D5B29B002BC005B5E1C /* MagicConnectViewController.swift in Sources */,
 				A14B60E0269720AE00B1E696 /* Web3ViewController.swift in Sources */,
 				A14B60E1269720AE00B1E696 /* MainTabBarController.swift in Sources */,
 				A14B607E26959E0A00B1E696 /* ViewController.swift in Sources */,

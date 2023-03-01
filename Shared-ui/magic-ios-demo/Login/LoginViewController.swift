@@ -146,27 +146,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
     }
 
-//    // MARK: - Email Login with PromiEvents
-//    func handleSignIn() {
-//        guard let magic = magic else { return }
-//
-//        let configuration = LoginWithMagicLinkConfiguration(email: self.emailInput.text!)
-//        magic.auth.loginWithMagicLink(configuration, eventLog: true).once(eventName: AuthModule.LoginWithMagicLinkEvent.emailSent.rawValue){
-//            print("email-sent")
-//        }.done { token -> Void in
-//
-//                            let defaults = UserDefaults.standard
-//                            defaults.set(token, forKey: "Token")
-//                            defaults.set(self.emailInput.text, forKey: "Email")
-//
-//                            self.navigateToMain()
-//                            print(token)
-//
-//                        }.catch { error in
-//                            print("Error", error)
-//                        }
-//    }
-//
     // MARK: - Social Login
     func handleSocialLogin(provider: OAuthProvider) {
 
@@ -280,6 +259,12 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     defaults.set(publicAddress, forKey: "publicAddress")
                     self.navigateToMain()
                 }
+            } else {
+                 if let err = res.error, let msg = (err as NSError).description as? String{
+                    print("ERROR: \(msg)")
+                    self.showResult("ERROR: \(msg)")
+                }
+                 
             }
         })
     }

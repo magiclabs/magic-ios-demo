@@ -89,10 +89,12 @@ class MagicViewController: UIViewController {
     @IBAction func logOut() {
         guard let magic = magic else { return }
         magic.user.logout(response: { response in
-            UserDefaults.standard.removeObject(forKey: "Email")
-            UserDefaults.standard.removeObject(forKey: "Token")
-            self.showResult(response.result?.description ?? "")
-            self.navigateToLogin()
+            if response.status.isSuccess {
+                UserDefaults.standard.removeObject(forKey: "Email")
+                UserDefaults.standard.removeObject(forKey: "Token")
+                self.showResult(response.result?.description ?? "")
+                self.navigateToLogin()
+            }
         })
     }
     
