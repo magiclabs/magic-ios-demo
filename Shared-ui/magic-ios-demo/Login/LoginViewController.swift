@@ -146,27 +146,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
     }
 
-//    // MARK: - Email Login with PromiEvents
-//    func handleSignIn() {
-//        guard let magic = magic else { return }
-//
-//        let configuration = LoginWithMagicLinkConfiguration(email: self.emailInput.text!)
-//        magic.auth.loginWithMagicLink(configuration, eventLog: true).once(eventName: AuthModule.LoginWithMagicLinkEvent.emailSent.rawValue){
-//            print("email-sent")
-//        }.done { token -> Void in
-//
-//                            let defaults = UserDefaults.standard
-//                            defaults.set(token, forKey: "Token")
-//                            defaults.set(self.emailInput.text, forKey: "Email")
-//
-//                            self.navigateToMain()
-//                            print(token)
-//
-//                        }.catch { error in
-//                            print("Error", error)
-//                        }
-//    }
-//
     // MARK: - Social Login
     func handleSocialLogin(provider: OAuthProvider) {
 
@@ -267,6 +246,32 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         })
     }
     
+    // MARK: - Magic Connect Login
+    func handleMCLogin() {
+        guard let magic = magic else { return }
+        
+        magic.wallet.connectWithUI(response: { res in
+            if (res.status.isSuccess) {
+                print(res.result ?? "nil")
+                
+                let defaults = UserDefaults.standard
+                if let publicAddress = res.result?.first {
+                    defaults.set(publicAddress, forKey: "publicAddress")
+                    self.navigateToMain()
+                }
+            } else {
+                 if let err = res.error, let msg = (err as NSError).description as? String{
+                    print("ERROR: \(msg)")
+                    self.showResult("ERROR: \(msg)")
+                }
+                 
+            }
+        })
+    }
+    
+    @IBAction func magicConnectLogin() {
+        handleMCLogin()
+    }
     @IBAction func emailLogin() {
         handleEmailLogin()
     }

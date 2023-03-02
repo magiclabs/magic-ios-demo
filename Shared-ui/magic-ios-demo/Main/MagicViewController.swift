@@ -70,7 +70,7 @@ class MagicViewController: UIViewController {
     @IBAction func updateEmail() {
         
         guard let magic = magic else { return }
-        let configuration = UpdateEmailConfiguration(email: "jerry@magic.link")
+        let configuration = UpdateEmailConfiguration(email: "hiro@magic.link")
         
         magic.user.updateEmail(configuration, eventLog: true)
             .once(eventName: "email-not-deliverable"){
@@ -83,14 +83,18 @@ class MagicViewController: UIViewController {
                 print(error)
             })
     }
+
     
+    // MARK: - Magic Auth Methods
     @IBAction func logOut() {
         guard let magic = magic else { return }
         magic.user.logout(response: { response in
-            UserDefaults.standard.removeObject(forKey: "Email")
-            UserDefaults.standard.removeObject(forKey: "Token")
-            self.showResult(response.result?.description ?? "")
-            self.navigateToLogin()
+            if response.status.isSuccess {
+                UserDefaults.standard.removeObject(forKey: "Email")
+                UserDefaults.standard.removeObject(forKey: "Token")
+                self.showResult(response.result?.description ?? "")
+                self.navigateToLogin()
+            }
         })
     }
     
