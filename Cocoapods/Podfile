@@ -24,7 +24,7 @@ use_frameworks!
 
 # iOS pod setup
 target 'magic-ios-cocoapods-demo' do
-  platform :ios, '13.0'
+  platform :ios, '11.0'
   importPods
 
   target 'magic-ios-cocoapods-demoTests' do
