@@ -64,7 +64,7 @@ class MagicViewController: UIViewController {
             
         magic.user.getMetadata().done({ result in
             self.showResult(result.email ?? "")
-            })
+        })
     }
     
     @IBAction func updateEmail() {
@@ -114,7 +114,9 @@ class MagicViewController: UIViewController {
     
     @IBAction func showSettings() {
         guard let magic = magic else { return }
-        magic.user.showSettings()
+        magic.user.showSettings().done({ result in
+            self.showResult(result.email ?? "")
+        })
     }
     @IBAction func isLoggedIn() {
         guard let magic = magic else { return }
