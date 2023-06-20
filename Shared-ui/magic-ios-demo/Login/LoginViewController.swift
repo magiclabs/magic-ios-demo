@@ -124,28 +124,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(mainTabBarController)
     }
 
-
-    // MARK: - Email Login
-    func handleEmailLogin() {
-        guard let magic = magic else { return }
-
-        let configuration = LoginWithMagicLinkConfiguration(email: self.emailInput.text!)
-            firstly {
-                magic.auth.loginWithMagicLink(configuration)
-            }.done { token -> Void in
-
-                let defaults = UserDefaults.standard
-                defaults.set(token, forKey: "Token")
-                defaults.set(self.emailInput.text, forKey: "Email")
-
-                self.navigateToMain()
-                print(token)
-
-            }.catch { error in
-                print("Error", error)
-            }
-    }
-
     // MARK: - Social Login
     func handleSocialLogin(provider: OAuthProvider) {
 
@@ -271,9 +249,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func magicConnectLogin() {
         handleMCLogin()
-    }
-    @IBAction func emailLogin() {
-        handleEmailLogin()
     }
 
     @IBAction func SMSLogin() {

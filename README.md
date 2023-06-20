@@ -4,7 +4,7 @@ This demo project provides you with the simplest usage of Magic IOS SDK includin
 
 Features
 ---
-**Email Login**: Authenticate a user passwordlessly using a "magic link" sent to the specified user's email address.
+**Email OTP Login**: Authenticate a user passwordlessly using a one-time code sent to the specified user's email address.
 
 **SMS Login**:Authenticate a user passwordlessly using a one-time code sent to the specified phone number.
 
