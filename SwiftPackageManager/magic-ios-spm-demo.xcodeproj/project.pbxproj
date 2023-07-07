@@ -22,6 +22,7 @@
 		A12957A0279F5F7B00F6DB73 /* Web3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */; };
 		A12957A1279F5F7B00F6DB73 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */; };
 		A12957A3279F618400F6DB73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12957A2279F618400F6DB73 /* Main.storyboard */; };
+		A1A4B6BF2A1ECE0A005AE914 /* MagicExt-GDKMS in Frameworks */ = {isa = PBXBuildFile; productRef = A1A4B6BE2A1ECE0A005AE914 /* MagicExt-GDKMS */; };
 		AB5865C629AD6D3D00CCFF3A /* MagicConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5865C529AD6D3D00CCFF3A /* MagicConnectViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 				A10398AA28FE18CA0027F5C6 /* MagicExt-OAuth in Frameworks */,
 				A10398AC28FE18CA0027F5C6 /* MagicExt-OIDC in Frameworks */,
 				A10398B028FE4EEB0027F5C6 /* MagicSDK in Frameworks */,
+				A1A4B6BF2A1ECE0A005AE914 /* MagicExt-GDKMS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +206,7 @@
 				A10398A928FE18CA0027F5C6 /* MagicExt-OAuth */,
 				A10398AB28FE18CA0027F5C6 /* MagicExt-OIDC */,
 				A10398AF28FE4EEB0027F5C6 /* MagicSDK */,
+				A1A4B6BE2A1ECE0A005AE914 /* MagicExt-GDKMS */,
 			);
 			productName = "magic-spm-ios";
 			productReference = A1295758279BDE2100F6DB73 /* magic-ios-spm-demo.app */;
@@ -666,6 +669,10 @@
 		A10398AF28FE4EEB0027F5C6 /* MagicSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MagicSDK;
+		};
+		A1A4B6BE2A1ECE0A005AE914 /* MagicExt-GDKMS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "MagicExt-GDKMS";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

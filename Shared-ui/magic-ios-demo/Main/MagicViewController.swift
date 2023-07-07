@@ -6,7 +6,7 @@
 
 import UIKit
 import MagicSDK_Web3
-
+import MagicExt_GDKMS
 import MagicSDK
 
 protocol MagicViewControllerDelegate: AnyObject {}
@@ -117,6 +117,23 @@ class MagicViewController: UIViewController {
         magic.user.showSettings().done({ result in
             self.showResult(result.email ?? "")
         })
+    }
+    
+    @IBAction func encryptV1() {
+        guard let magic = magic else { return }
+        magic.gdkms.encryptWithPrivateKey("hello world", response: { response in
+            if response.status.isSuccess {
+                self.showResult(response.result ?? "");
+            }
+        })
+    }
+    
+    @IBAction func decryptV1() {
+        guard let magic = magic else { return }
+        magic.gdkms.decryptWithPrivateKey("", response: { response in
+            if response.status.isSuccess {
+            }
+            })
     }
     @IBAction func isLoggedIn() {
         guard let magic = magic else { return }
