@@ -136,7 +136,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             if (res.status.isSuccess) {
                 let defaults = UserDefaults.standard
                 defaults.set(res.result?.magic.idToken, forKey: "Token")
-                defaults.set(res.result?.magic.userMetadata.email, forKey: "Email")
+                defaults.set(res.result?.magic.userInfo.email, forKey: "Email")
                 self.navigateToMain()
             } else {
                 switch res.magicExtOAuthError {
