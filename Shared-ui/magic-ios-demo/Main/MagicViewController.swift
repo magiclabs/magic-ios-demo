@@ -59,11 +59,11 @@ class MagicViewController: UIViewController {
         })
     }
     
-    @IBAction func getMetaData() {
+    @IBAction func getInfo() {
         guard let magic = magic else { return }
             
-        magic.user.getMetadata().done({ result in
-            self.showResult(result.email ?? "")
+        magic.user.getInfo().done({ result in
+            self.showResult(result.description)
         })
     }
     
