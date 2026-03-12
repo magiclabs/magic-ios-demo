@@ -8,7 +8,6 @@
 import UIKit
 import MagicSDK
 import MagicExt_OAuth
-import MagicExt_OIDC
 import PromiseKit
 import MagicSDK_Web3
 
@@ -29,15 +28,17 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var recoveryEmailInput: UITextField!
     @IBOutlet weak var phoneInput: UITextField!
-
+    @IBOutlet weak var emailLoginButton: UIButton!
+    @IBOutlet weak var smsLoginButton: UIButton!
     @IBOutlet var providerPicker: UITextField!
 
-    @IBOutlet var jwt: UITextField!
-    @IBOutlet var providerId: UITextField!
 
      // picker
     let pickerData: [String] = OAuthProvider.allCases.map { $0.rawValue }
      var selectedRow: Int = 0
+    
+    private var emailActivityIndicator: UIActivityIndicatorView!
+    private var smsActivityIndicator: UIActivityIndicatorView!
 
 
     override func viewDidLoad() {
@@ -63,23 +64,21 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
          toolBar.isUserInteractionEnabled = true
          picker.selectRow(0, inComponent: 0, animated: false)
 
-         providerPicker.inputView = picker
-         providerPicker.inputAccessoryView = toolBar
-
-        // email Input
-        self.emailInput.isHidden = true
+        providerPicker.inputView = picker
+        providerPicker.inputAccessoryView = toolBar
+        
+        configureTextFields()
+        styleButtons(in: view)
+        setupActivityIndicators()
 
         guard let magic = magic else { return }
         // Checked if user is LoggedIn
 
 
         magic.user.isLoggedIn() { flag in
-
             // if it's logged in auto move to next page
             if flag.result ?? false {
                 self.navigateToMain()
-            } else {
-                self.emailInput.isHidden = false
             }
         }
     }
@@ -136,7 +135,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             if (res.status.isSuccess) {
                 let defaults = UserDefaults.standard
                 defaults.set(res.result?.magic.idToken, forKey: "Token")
-                defaults.set(res.result?.magic.userInfo.email, forKey: "Email")
+                defaults.set(res.result?.oauth.userInfo.email, forKey: "Email")
                 self.navigateToMain()
             } else {
                 switch res.magicExtOAuthError {
@@ -164,16 +163,22 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     // MARK: - SMS Login
     func handleSMSLogin() {
         guard let magic = magic else { return }
+        
+        smsLoginButton.isEnabled = false
+        smsActivityIndicator.startAnimating()
 
         let config = LoginWithSmsConfiguration(phoneNumber: self.phoneInput.text!)
 
-        magic.auth.loginWithSMS(config, response: {res in
-
-            if (res.status.isSuccess) {
+        magic.auth.loginWithSMS(config, response: { res in
+            DispatchQueue.main.async {
+                self.smsActivityIndicator.stopAnimating()
+                self.smsLoginButton.isEnabled = true
+            }
+            
+            if res.status.isSuccess {
                 print(res.result ?? "nil")
                 self.navigateToMain()
             }
-
         })
     }
 
@@ -181,33 +186,23 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func handleEmailOTPLogin() {
         guard let magic = magic else { return }
         let config = LoginWithEmailOTPConfiguration(email: self.emailInput.text!)
-
-        magic.auth.loginWithEmailOTP(config, response: {res in
-
-            if (res.status.isSuccess) {
+        
+        emailLoginButton.isEnabled = false
+        emailActivityIndicator.startAnimating()
+        
+        magic.auth.loginWithEmailOTP(config, response: { res in
+            DispatchQueue.main.async {
+                self.emailActivityIndicator.stopAnimating()
+                self.emailLoginButton.isEnabled = true
+            }
+            
+            if res.status.isSuccess {
                 print(res.result ?? "nil")
                 self.navigateToMain()
             }
-
         })
     }
 
-    // MARK: - OpenId Login
-    func handleOpenIdLogin() {
-        guard let magic = magic else { return }
-
-        let config = OpenIdConfiguration(jwt: self.jwt.text!, providerId: self.providerId.text!)
-
-        magic.openid.loginWithOIDC(config, response: {res in
-
-            if (res.status.isSuccess) {
-                print(res.result ?? "nil")
-                self.navigateToMain()
-            }
-
-        })
-    }
-    
     // MARK: - Recover Account
     func handleRecoverAccount() {
         guard let magic = magic else { return }
@@ -223,33 +218,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         })
     }
-    
-    // MARK: - Magic Connect Login
-    func handleMCLogin() {
-        guard let magic = magic else { return }
-        
-        magic.wallet.connectWithUI(response: { res in
-            if (res.status.isSuccess) {
-                print(res.result ?? "nil")
-                
-                let defaults = UserDefaults.standard
-                if let publicAddress = res.result?.first {
-                    defaults.set(publicAddress, forKey: "publicAddress")
-                    self.navigateToMain()
-                }
-            } else {
-                 if let err = res.error, let msg = (err as NSError).description as? String{
-                    print("ERROR: \(msg)")
-                    self.showResult("ERROR: \(msg)")
-                }
-                 
-            }
-        })
-    }
-    
-    @IBAction func magicConnectLogin() {
-        handleMCLogin()
-    }
 
     @IBAction func SMSLogin() {
         handleSMSLogin()
@@ -259,10 +227,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         handleEmailOTPLogin()
     }
 
-    @IBAction func openIdLogin() {
-        handleOpenIdLogin()
-    }
-
     @IBAction func recoverAccount() {
         handleRecoverAccount()
     }
@@ -270,4 +234,51 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
           handleSocialLogin(provider: OAuthProvider.allCases[selectedRow])
      }
+    
+    private func configureTextFields() {
+        emailInput.placeholder = "Email"
+        phoneInput.placeholder = "Phone number"
+        recoveryEmailInput.placeholder = "Recovery email"
+        
+        emailInput.keyboardType = .emailAddress
+        recoveryEmailInput.keyboardType = .emailAddress
+        phoneInput.keyboardType = .phonePad
+    }
+    
+    private func styleButtons(in rootView: UIView) {
+        for subview in rootView.subviews {
+            if let button = subview as? UIButton {
+                button.backgroundColor = .black
+                button.setTitleColor(.white, for: .normal)
+                button.layer.cornerRadius = 6
+                button.clipsToBounds = true
+                button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+            } else {
+                styleButtons(in: subview)
+            }
+        }
+    }
+    
+    private func setupActivityIndicators() {
+        emailActivityIndicator = makeActivityIndicator()
+        smsActivityIndicator = makeActivityIndicator()
+        
+        attach(indicator: emailActivityIndicator, to: emailLoginButton)
+        attach(indicator: smsActivityIndicator, to: smsLoginButton)
+    }
+    
+    private func makeActivityIndicator() -> UIActivityIndicatorView {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }
+    
+    private func attach(indicator: UIActivityIndicatorView, to button: UIButton) {
+        button.addSubview(indicator)
+        NSLayoutConstraint.activate([
+            indicator.centerYAnchor.constraint(equalTo: button.centerYAnchor),
+            indicator.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -8)
+        ])
+    }
 }

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Cocoapods/Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Cocoapods/magic-ios-cocoapods-demo.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:SwiftPackageManager/magic-ios-spm-demo.xcodeproj">
    </FileRef>
 </Workspace>

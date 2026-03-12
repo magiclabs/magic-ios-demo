@@ -47,6 +47,7 @@ class Web3ViewController: UIViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
+            styleButtons(in: view)
         }
         
         override func viewDidAppear(_ animated: Bool) {
@@ -313,5 +314,19 @@ class Web3ViewController: UIViewController {
     
     @IBAction func contractCallwrite() {
         testContractCallWrite()
+    }
+    
+    private func styleButtons(in rootView: UIView) {
+        for subview in rootView.subviews {
+            if let button = subview as? UIButton {
+                button.backgroundColor = .black
+                button.setTitleColor(.white, for: .normal)
+                button.layer.cornerRadius = 6
+                button.clipsToBounds = true
+                button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+            } else {
+                styleButtons(in: subview)
+            }
+        }
     }
 }

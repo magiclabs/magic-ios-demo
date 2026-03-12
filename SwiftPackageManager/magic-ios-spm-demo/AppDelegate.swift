@@ -19,12 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // MARK: - Magic Instantiation
-        Magic.shared = Magic(apiKey: "YOUR_PUBLISHABLE_KEY")
+        Magic.shared = Magic(apiKey: "pk_live_68BE935FCA12169A")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
         // MARK: - User Session Check
         // if user is logged in before
+        
         if UserDefaults.standard.string(forKey: "Email") != nil || UserDefaults.standard.string(forKey: "publicAddress") != nil {
               // instantiate the main tab bar controller and set it as root view controller
               // using the storyboard identifier we set earlier

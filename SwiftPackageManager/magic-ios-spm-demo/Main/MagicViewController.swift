@@ -6,7 +6,6 @@
 
 import UIKit
 import MagicSDK_Web3
-
 import MagicSDK
 
 protocol MagicViewControllerDelegate: AnyObject {}
@@ -25,11 +24,10 @@ class MagicViewController: UIViewController {
     
     let magic = Magic.shared
     
-
     override func viewDidLoad() {
-        
-        emailLabel.text = UserDefaults.standard.string(forKey: "Email")
         super.viewDidLoad()
+        emailLabel.text = UserDefaults.standard.string(forKey: "Email")
+        styleButtons(in: view)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +43,20 @@ class MagicViewController: UIViewController {
         // then call the change root view controller function to change to main tab bar
         (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(loginVC)
     }
-
+    
+    private func styleButtons(in rootView: UIView) {
+        for subview in rootView.subviews {
+            if let button = subview as? UIButton {
+                button.backgroundColor = .black
+                button.setTitleColor(.white, for: .normal)
+                button.layer.cornerRadius = 6
+                button.clipsToBounds = true
+                button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+            } else {
+                styleButtons(in: subview)
+            }
+        }
+    }
 
     // MARK: - Phantom functions
     
@@ -124,4 +135,5 @@ class MagicViewController: UIViewController {
             self.showResult(response.result?.description ?? "")
         })
     }
+
 }
