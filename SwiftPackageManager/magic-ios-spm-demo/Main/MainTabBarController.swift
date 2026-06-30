@@ -21,5 +21,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
         super.viewDidLoad()
         delegate = self
+        tabBar.tintColor = .black
+        tabBar.unselectedItemTintColor = .gray
+        tabBar.isTranslucent = false
     }
 }

@@ -6,7 +6,6 @@
 
 import UIKit
 import MagicSDK_Web3
-
 import MagicSDK
 
 protocol MagicViewControllerDelegate: AnyObject {}
@@ -25,11 +24,10 @@ class MagicViewController: UIViewController {
     
     let magic = Magic.shared
     
-
     override func viewDidLoad() {
-        
-        emailLabel.text = UserDefaults.standard.string(forKey: "Email")
         super.viewDidLoad()
+        emailLabel.text = UserDefaults.standard.string(forKey: "Email")
+        styleButtons(in: view)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +43,21 @@ class MagicViewController: UIViewController {
         // then call the change root view controller function to change to main tab bar
         (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(loginVC)
     }
-
+    
+    private func styleButtons(in rootView: UIView) {
+        for subview in rootView.subviews {
+            if let button = subview as? UIButton {
+                var config = UIButton.Configuration.filled()
+                config.baseBackgroundColor = .black
+                config.baseForegroundColor = .white
+                config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
+                config.cornerStyle = .medium
+                button.configuration = config
+            } else {
+                styleButtons(in: subview)
+            }
+        }
+    }
 
     // MARK: - Phantom functions
     
@@ -64,6 +76,8 @@ class MagicViewController: UIViewController {
             
         magic.user.getInfo().done({ result in
             self.showResult(result.description)
+        }).catch({ error in
+            self.showResult(error.localizedDescription)
         })
     }
     
@@ -73,9 +87,9 @@ class MagicViewController: UIViewController {
         let configuration = UpdateEmailConfiguration(email: "hiro@magic.link")
         
         magic.user.updateEmail(configuration, eventLog: true)
-            .once(eventName: "email-not-deliverable"){
+            .on(eventName: UserModule.UpdateEmailEvent.emailNotDeliverable.rawValue) {
             print("Email not deliverable")
-        }.once(eventName: "email-sent"){
+        }.on(eventName: UserModule.UpdateEmailEvent.emailSent.rawValue) {
             print("Email sent!")
         }.done({ result in
                 self.showResult(result.description)
@@ -116,6 +130,8 @@ class MagicViewController: UIViewController {
         guard let magic = magic else { return }
         magic.user.showSettings().done({ result in
             self.showResult(result.email ?? "")
+        }).catch({ error in
+            self.showResult(error.localizedDescription)
         })
     }
     @IBAction func isLoggedIn() {
@@ -124,4 +140,5 @@ class MagicViewController: UIViewController {
             self.showResult(response.result?.description ?? "")
         })
     }
+
 }

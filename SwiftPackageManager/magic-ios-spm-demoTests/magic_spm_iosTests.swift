@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import magic_ios_demo
+@testable import magic_spm_ios
 
-class magic_ios_demoTests: XCTestCase {
+class magic_spm_iosTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
