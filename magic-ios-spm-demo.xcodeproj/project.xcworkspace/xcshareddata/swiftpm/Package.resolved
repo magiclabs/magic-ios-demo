@@ -20,24 +20,6 @@
         }
       },
       {
-        "package": "MagicSDK",
-        "repositoryURL": "https://github.com/magiclabs/magic-ios.git",
-        "state": {
-          "branch": null,
-          "revision": "2becf700c583aa88f77ed3f13e5de58fa52101ea",
-          "version": "3.0.0"
-        }
-      },
-      {
-        "package": "MagicExt-OAuth",
-        "repositoryURL": "https://github.com/magiclabs/magic-ios-ext.git",
-        "state": {
-          "branch": null,
-          "revision": "f15b2b91470a5edc902077b9487276408b6fe0b3",
-          "version": "1.0.0"
-        }
-      },
-      {
         "package": "PromiseKit",
         "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
         "state": {
