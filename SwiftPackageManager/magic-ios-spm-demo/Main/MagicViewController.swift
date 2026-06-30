@@ -47,11 +47,12 @@ class MagicViewController: UIViewController {
     private func styleButtons(in rootView: UIView) {
         for subview in rootView.subviews {
             if let button = subview as? UIButton {
-                button.backgroundColor = .black
-                button.setTitleColor(.white, for: .normal)
-                button.layer.cornerRadius = 6
-                button.clipsToBounds = true
-                button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+                var config = UIButton.Configuration.filled()
+                config.baseBackgroundColor = .black
+                config.baseForegroundColor = .white
+                config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
+                config.cornerStyle = .medium
+                button.configuration = config
             } else {
                 styleButtons(in: subview)
             }
@@ -75,6 +76,8 @@ class MagicViewController: UIViewController {
             
         magic.user.getInfo().done({ result in
             self.showResult(result.description)
+        }).catch({ error in
+            self.showResult(error.localizedDescription)
         })
     }
     
@@ -84,9 +87,9 @@ class MagicViewController: UIViewController {
         let configuration = UpdateEmailConfiguration(email: "hiro@magic.link")
         
         magic.user.updateEmail(configuration, eventLog: true)
-            .once(eventName: "email-not-deliverable"){
+            .on(eventName: UserModule.UpdateEmailEvent.emailNotDeliverable.rawValue) {
             print("Email not deliverable")
-        }.once(eventName: "email-sent"){
+        }.on(eventName: UserModule.UpdateEmailEvent.emailSent.rawValue) {
             print("Email sent!")
         }.done({ result in
                 self.showResult(result.description)
@@ -127,6 +130,8 @@ class MagicViewController: UIViewController {
         guard let magic = magic else { return }
         magic.user.showSettings().done({ result in
             self.showResult(result.email ?? "")
+        }).catch({ error in
+            self.showResult(error.localizedDescription)
         })
     }
     @IBAction func isLoggedIn() {

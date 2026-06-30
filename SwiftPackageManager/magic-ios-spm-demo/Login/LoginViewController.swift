@@ -67,7 +67,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         providerPicker.inputView = picker
         providerPicker.inputAccessoryView = toolBar
         
-        configureTextFields()
         styleButtons(in: view)
         setupActivityIndicators()
 
@@ -164,7 +163,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func handleSMSLogin() {
         guard let magic = magic else { return }
         
-        smsLoginButton.isEnabled = false
         smsActivityIndicator.startAnimating()
 
         let config = LoginWithSmsConfiguration(phoneNumber: self.phoneInput.text!)
@@ -172,7 +170,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         magic.auth.loginWithSMS(config, response: { res in
             DispatchQueue.main.async {
                 self.smsActivityIndicator.stopAnimating()
-                self.smsLoginButton.isEnabled = true
             }
             
             if res.status.isSuccess {
@@ -186,21 +183,266 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func handleEmailOTPLogin() {
         guard let magic = magic else { return }
         let config = LoginWithEmailOTPConfiguration(email: self.emailInput.text!)
-        
-        emailLoginButton.isEnabled = false
+
         emailActivityIndicator.startAnimating()
-        
+
         magic.auth.loginWithEmailOTP(config, response: { res in
             DispatchQueue.main.async {
                 self.emailActivityIndicator.stopAnimating()
-                self.emailLoginButton.isEnabled = true
             }
-            
+
             if res.status.isSuccess {
                 print(res.result ?? "nil")
                 self.navigateToMain()
             }
         })
+    }
+
+    // MARK: - EmailOTP Login (headless / showUI: false)
+    private var emailOTPHandle: MagicEventPromise<String>?
+    private var otpRetries = 2
+    private var mfaRetries = 2
+    private var recoveryRetries = 2
+    private var headlessStatusLabel: UILabel?
+
+    private func updateStatus(_ message: String) {
+        if headlessStatusLabel == nil {
+            let label = UILabel()
+            label.textAlignment = .center
+            label.font = .systemFont(ofSize: 13, weight: .medium)
+            label.textColor = .secondaryLabel
+            label.numberOfLines = 0
+            label.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(label)
+            NSLayoutConstraint.activate([
+                label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            ])
+            headlessStatusLabel = label
+        }
+        headlessStatusLabel?.text = message
+    }
+
+    private func clearStatus() {
+        headlessStatusLabel?.removeFromSuperview()
+        headlessStatusLabel = nil
+    }
+
+    func handleEmailOTPLoginHeadless() {
+        guard let magic = magic else {
+            showResult("Magic SDK not initialized")
+            return
+        }
+        guard let email = emailInput.text, !email.isEmpty else {
+            showResult("Please enter an email address")
+            return
+        }
+        let config = LoginWithEmailOTPConfiguration(email: email, showUI: false)
+
+        emailActivityIndicator.startAnimating()
+        updateStatus("Sending OTP to \(email)…")
+        otpRetries = 2; mfaRetries = 2; recoveryRetries = 2
+
+        typealias E = AuthModule.LoginWithEmailOTPEvent
+
+        emailOTPHandle = magic.auth.loginWithEmailOTP(config, eventLog: true)
+
+            // — Email OTP —
+            .on(event: E.emailOTPSent) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("OTP sent — check your email.")
+                    self?.promptForCode(title: "Enter OTP", message: "Check your email for a one-time passcode.") { otp in
+                        self?.updateStatus("Verifying OTP…")
+                        self?.emailOTPHandle?.emit(event: E.verifyEmailOTP, arg: otp)
+                    }
+                }
+            }
+            .onPersistent(event: E.invalidEmailOTP) { [weak self] in
+                DispatchQueue.main.async {
+                    if self?.otpRetries ?? 0 <= 0 {
+                        self?.updateStatus("Too many invalid attempts — cancelling.")
+                        self?.emailOTPHandle?.emit(event: E.cancel)
+                    } else {
+                        self?.otpRetries -= 1
+                        self?.updateStatus("Invalid OTP — try again (\(self?.otpRetries ?? 0) retries left).")
+                        self?.promptForCode(title: "Invalid OTP", message: "Retries left: \(self?.otpRetries ?? 0)") { otp in
+                            self?.updateStatus("Verifying OTP…")
+                            self?.emailOTPHandle?.emit(event: E.verifyEmailOTP, arg: otp)
+                        }
+                    }
+                }
+            }
+            .on(event: E.expiredEmailOTP) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("OTP expired.")
+                    self?.showResult("OTP expired — please restart login.")
+                }
+            }
+            .on(event: E.loginThrottled) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("Login throttled — please wait.")
+                    self?.showResult("Too many attempts — please wait before retrying.")
+                }
+            }
+            .on(event: E.maxAttemptsReached) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("Max attempts reached.")
+                    self?.showResult("Max OTP attempts reached.")
+                }
+            }
+
+            // — MFA —
+            .on(event: E.mfaSentHandle) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("MFA required — enter your authenticator code.")
+                    self?.promptForCode(title: "Enter MFA Code", message: "Enter your authenticator code.") { code in
+                        self?.updateStatus("Verifying MFA…")
+                        self?.emailOTPHandle?.emit(event: E.verifyMFACode, arg: code)
+                    }
+                }
+            }
+            .onPersistent(event: E.invalidMfaOTP) { [weak self] in
+                DispatchQueue.main.async {
+                    if self?.mfaRetries ?? 0 <= 0 {
+                        self?.updateStatus("Too many invalid MFA attempts — switching to recovery.")
+                        self?.emailOTPHandle?.emit(event: E.lostDevice)
+                    } else {
+                        self?.mfaRetries -= 1
+                        self?.updateStatus("Invalid MFA code — try again (\(self?.mfaRetries ?? 0) retries left).")
+                        self?.promptForCode(title: "Invalid MFA Code", message: "Retries left: \(self?.mfaRetries ?? 0)") { code in
+                            self?.updateStatus("Verifying MFA…")
+                            self?.emailOTPHandle?.emit(event: E.verifyMFACode, arg: code)
+                        }
+                    }
+                }
+            }
+            .on(event: E.recoveryCodeSentHandle) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("Enter your MFA recovery code.")
+                    self?.promptForCode(title: "MFA Recovery", message: "Enter your recovery code.") { code in
+                        self?.updateStatus("Verifying recovery code…")
+                        self?.emailOTPHandle?.emit(event: E.verifyRecoveryCode, arg: code)
+                    }
+                }
+            }
+            .onPersistent(event: E.invalidRecoveryCode) { [weak self] in
+                DispatchQueue.main.async {
+                    if self?.recoveryRetries ?? 0 <= 0 {
+                        self?.updateStatus("Too many invalid recovery attempts — cancelling.")
+                        self?.emailOTPHandle?.emit(event: E.cancel)
+                    } else {
+                        self?.recoveryRetries -= 1
+                        self?.updateStatus("Invalid recovery code — try again (\(self?.recoveryRetries ?? 0) retries left).")
+                        self?.promptForCode(title: "Invalid Recovery Code", message: "Retries left: \(self?.recoveryRetries ?? 0)") { code in
+                            self?.updateStatus("Verifying recovery code…")
+                            self?.emailOTPHandle?.emit(event: E.verifyRecoveryCode, arg: code)
+                        }
+                    }
+                }
+            }
+
+            // — Device verification —
+            .on(event: E.deviceNeedsApproval) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("New device detected — check your inbox to approve.")
+                    self?.showBanner("Device Needs Approval — check your inbox.")
+                }
+            }
+            .on(event: E.deviceVerificationEmailSent) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("Device verification email sent — waiting for approval…")
+                    self?.showBanner("Device verification email sent.")
+                }
+            }
+            .on(event: E.deviceApproved) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("Device approved! Continuing login…")
+                    self?.showBanner("Device approved!")
+                }
+            }
+            .on(event: E.deviceVerificationLinkExpired) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.updateStatus("Device verification link expired — retrying…")
+                    self?.showResult("Device verification link expired.")
+                    self?.emailOTPHandle?.emit(event: E.deviceRetry)
+                }
+            }
+
+        emailOTPHandle?
+            .onError { [weak self] error in
+                DispatchQueue.main.async {
+                    self?.emailActivityIndicator.stopAnimating()
+                    self?.clearStatus()
+                    self?.showResult(error.localizedDescription)
+                }
+            }
+            .done { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.emailActivityIndicator.stopAnimating()
+                    self?.clearStatus()
+                    self?.navigateToMain()
+                }
+            }
+            .catch { _ in }
+    }
+
+    private func promptForCode(title: String, message: String, completion: @escaping (String) -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField { field in
+            field.placeholder = "6-digit code"
+            field.keyboardType = .numberPad
+            field.textContentType = .oneTimeCode
+        }
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            guard let code = alert.textFields?.first?.text, !code.isEmpty else { return }
+            completion(code)
+        }
+        alert.addAction(submitAction)
+        alert.preferredAction = submitAction
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
+            self?.emailOTPHandle?.emit(event: AuthModule.LoginWithEmailOTPEvent.cancel)
+            self?.emailActivityIndicator.stopAnimating()
+            self?.clearStatus()
+        })
+
+        // Walk up from window root to find the topmost presented VC
+        let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+            ?? UIApplication.shared.connectedScenes
+                .first(where: { $0.activationState == .foregroundInactive }) as? UIWindowScene
+            ?? UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let keyWindow: UIWindow?
+        if #available(iOS 16.0, *) {
+            keyWindow = scene?.keyWindow ?? scene?.windows.first
+        } else {
+            keyWindow = scene?.windows.first(where: { $0.isKeyWindow }) ?? scene?.windows.first
+        }
+        guard var presenter = keyWindow?.rootViewController else { return }
+        while let next = presenter.presentedViewController { presenter = next }
+        presenter.present(alert, animated: true)
+    }
+
+    private func showBanner(_ message: String) {
+        let banner = UILabel()
+        banner.text = message
+        banner.textColor = .white
+        banner.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.9)
+        banner.textAlignment = .center
+        banner.font = .systemFont(ofSize: 14, weight: .medium)
+        banner.layer.cornerRadius = 10
+        banner.clipsToBounds = true
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(banner)
+        NSLayoutConstraint.activate([
+            banner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            banner.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            banner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            banner.heightAnchor.constraint(equalToConstant: 44),
+        ])
+        UIView.animate(withDuration: 0.3, delay: 2.5, options: [], animations: {
+            banner.alpha = 0
+        }, completion: { _ in banner.removeFromSuperview() })
     }
 
     // MARK: - Recover Account
@@ -227,6 +469,10 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         handleEmailOTPLogin()
     }
 
+    @IBAction func emailOTPLoginHeadless() {
+        handleEmailOTPLoginHeadless()
+    }
+
     @IBAction func recoverAccount() {
         handleRecoverAccount()
     }
@@ -235,24 +481,20 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
           handleSocialLogin(provider: OAuthProvider.allCases[selectedRow])
      }
     
-    private func configureTextFields() {
-        emailInput.placeholder = "Email"
-        phoneInput.placeholder = "Phone number"
-        recoveryEmailInput.placeholder = "Recovery email"
-        
-        emailInput.keyboardType = .emailAddress
-        recoveryEmailInput.keyboardType = .emailAddress
-        phoneInput.keyboardType = .phonePad
-    }
-    
     private func styleButtons(in rootView: UIView) {
         for subview in rootView.subviews {
             if let button = subview as? UIButton {
-                button.backgroundColor = .black
-                button.setTitleColor(.white, for: .normal)
-                button.layer.cornerRadius = 6
-                button.clipsToBounds = true
-                button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+                var config = UIButton.Configuration.filled()
+                config.baseBackgroundColor = .black
+                config.baseForegroundColor = .white
+                config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+                config.cornerStyle = .medium
+                config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attrs in
+                    var updated = attrs
+                    updated.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+                    return updated
+                }
+                button.configuration = config
             } else {
                 styleButtons(in: subview)
             }
@@ -281,4 +523,5 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             indicator.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -8)
         ])
     }
+    
 }

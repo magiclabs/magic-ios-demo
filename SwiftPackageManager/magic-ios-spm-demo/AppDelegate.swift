@@ -19,25 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // MARK: - Magic Instantiation
-        Magic.shared = Magic(apiKey: "pk_live_68BE935FCA12169A")
+        Magic.shared = Magic(apiKey: "pk_live_667E736A88BC7612")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
+        // Start on the login screen while the session check runs
+        let loginNavController = storyboard.instantiateViewController(withIdentifier: LoginViewController.storyboardIdentifier)
+        window?.rootViewController = loginNavController
+
         // MARK: - User Session Check
-        // if user is logged in before
-        
-        if UserDefaults.standard.string(forKey: "Email") != nil || UserDefaults.standard.string(forKey: "publicAddress") != nil {
-              // instantiate the main tab bar controller and set it as root view controller
-              // using the storyboard identifier we set earlier
-            let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
-              window?.rootViewController = mainTabBarController
-          } else {
-              // if user isn't logged in
-              // instantiate the navigation controller and set it as root view controller
-              // using the storyboard identifier we set earlier
-            let loginNavController = storyboard.instantiateViewController(withIdentifier: LoginViewController.storyboardIdentifier)
-              window?.rootViewController = loginNavController
-          }
+        guard let magic = Magic.shared else { return true }
+        magic.user.isLoggedIn { response in
+            DispatchQueue.main.async {
+                if response.result == true {
+                    print("[MagicSDK] isLoggedIn: true — navigating to main")
+                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
+                    self.changeRootViewController(mainTabBarController)
+                } else {
+                    print("[MagicSDK] isLoggedIn: false — staying on login")
+                }
+            }
+        }
         
         return true
     }
