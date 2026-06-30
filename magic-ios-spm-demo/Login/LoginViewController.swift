@@ -244,48 +244,46 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         updateStatus("Sending OTP to \(email)…")
         otpRetries = 2; mfaRetries = 2; recoveryRetries = 2
 
-        typealias E = AuthModule.LoginWithEmailOTPEvent
-
         emailOTPHandle = magic.auth.loginWithEmailOTP(config, eventLog: true)
 
             // — Email OTP —
-            .on(eventName: E.emailOTPSent.rawValue) { [weak self] in
+            .on(eventName: AuthModule.LoginWithEmailOTPEventOnReceived.emailOTPSent.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("OTP sent — check your email.")
                     self?.promptForCode(title: "Enter OTP", message: "Check your email for a one-time passcode.") { otp in
                         self?.updateStatus("Verifying OTP…")
-                        self?.emailOTPHandle?.emit(eventType: E.verifyEmailOTP.rawValue, arg: otp)
+                        self?.emailOTPHandle?.emit(eventType: AuthModule.LoginWithEmailOTPEventEmit.verifyEmailOTP.rawValue, arg: otp)
                     }
                 }
             }
-            .onPersistent(eventName: E.invalidEmailOTP.rawValue) { [weak self] in
+            .onPersistent(eventName: AuthModule.LoginWithEmailOTPEventOnReceived.invalidEmailOTP.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     if self?.otpRetries ?? 0 <= 0 {
                         self?.updateStatus("Too many invalid attempts — cancelling.")
-                        self?.emailOTPHandle?.emit(eventType: E.cancel.rawValue)
+                        self?.emailOTPHandle?.emit(eventType: AuthModule.LoginWithEmailOTPEventEmit.cancel.rawValue)
                     } else {
                         self?.otpRetries -= 1
                         self?.updateStatus("Invalid OTP — try again (\(self?.otpRetries ?? 0) retries left).")
                         self?.promptForCode(title: "Invalid OTP", message: "Retries left: \(self?.otpRetries ?? 0)") { otp in
                             self?.updateStatus("Verifying OTP…")
-                            self?.emailOTPHandle?.emit(eventType: E.verifyEmailOTP.rawValue, arg: otp)
+                            self?.emailOTPHandle?.emit(eventType: AuthModule.LoginWithEmailOTPEventEmit.verifyEmailOTP.rawValue, arg: otp)
                         }
                     }
                 }
             }
-            .on(eventName: E.expiredEmailOTP.rawValue) { [weak self] in
+            .on(eventName: AuthModule.LoginWithEmailOTPEventOnReceived.expiredEmailOTP.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("OTP expired.")
                     self?.showResult("OTP expired — please restart login.")
                 }
             }
-            .on(eventName: E.loginThrottled.rawValue) { [weak self] in
+            .on(eventName: AuthModule.LoginWithEmailOTPEventOnReceived.loginThrottled.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("Login throttled — please wait.")
                     self?.showResult("Too many attempts — please wait before retrying.")
                 }
             }
-            .on(eventName: E.maxAttemptsReached.rawValue) { [weak self] in
+            .on(eventName: AuthModule.LoginWithEmailOTPEventOnReceived.maxAttemptsReached.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("Max attempts reached.")
                     self?.showResult("Max OTP attempts reached.")
@@ -293,79 +291,79 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
 
             // — MFA —
-            .on(eventName: E.mfaSentHandle.rawValue) { [weak self] in
+            .on(eventName: AuthModule.MFAEventOnReceived.mfaSentHandle.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("MFA required — enter your authenticator code.")
                     self?.promptForCode(title: "Enter MFA Code", message: "Enter your authenticator code.") { code in
                         self?.updateStatus("Verifying MFA…")
-                        self?.emailOTPHandle?.emit(eventType: E.verifyMFACode.rawValue, arg: code)
+                        self?.emailOTPHandle?.emit(eventType: AuthModule.MFAEventEmit.verifyMFACode.rawValue, arg: code)
                     }
                 }
             }
-            .onPersistent(eventName: E.invalidMfaOTP.rawValue) { [weak self] in
+            .onPersistent(eventName: AuthModule.MFAEventOnReceived.invalidMfaOTP.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     if self?.mfaRetries ?? 0 <= 0 {
                         self?.updateStatus("Too many invalid MFA attempts — switching to recovery.")
-                        self?.emailOTPHandle?.emit(eventType: E.lostDevice.rawValue)
+                        self?.emailOTPHandle?.emit(eventType: AuthModule.MFAEventEmit.lostDevice.rawValue)
                     } else {
                         self?.mfaRetries -= 1
                         self?.updateStatus("Invalid MFA code — try again (\(self?.mfaRetries ?? 0) retries left).")
                         self?.promptForCode(title: "Invalid MFA Code", message: "Retries left: \(self?.mfaRetries ?? 0)") { code in
                             self?.updateStatus("Verifying MFA…")
-                            self?.emailOTPHandle?.emit(eventType: E.verifyMFACode.rawValue, arg: code)
+                            self?.emailOTPHandle?.emit(eventType: AuthModule.MFAEventEmit.verifyMFACode.rawValue, arg: code)
                         }
                     }
                 }
             }
-            .on(eventName: E.recoveryCodeSentHandle.rawValue) { [weak self] in
+            .on(eventName: AuthModule.MFAEventOnReceived.recoveryCodeSentHandle.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("Enter your MFA recovery code.")
                     self?.promptForCode(title: "MFA Recovery", message: "Enter your recovery code.") { code in
                         self?.updateStatus("Verifying recovery code…")
-                        self?.emailOTPHandle?.emit(eventType: E.verifyRecoveryCode.rawValue, arg: code)
+                        self?.emailOTPHandle?.emit(eventType: AuthModule.MFAEventEmit.verifyRecoveryCode.rawValue, arg: code)
                     }
                 }
             }
-            .onPersistent(eventName: E.invalidRecoveryCode.rawValue) { [weak self] in
+            .onPersistent(eventName: AuthModule.MFAEventOnReceived.invalidRecoveryCode.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     if self?.recoveryRetries ?? 0 <= 0 {
                         self?.updateStatus("Too many invalid recovery attempts — cancelling.")
-                        self?.emailOTPHandle?.emit(eventType: E.cancel.rawValue)
+                        self?.emailOTPHandle?.emit(eventType: AuthModule.MFAEventEmit.cancel.rawValue)
                     } else {
                         self?.recoveryRetries -= 1
                         self?.updateStatus("Invalid recovery code — try again (\(self?.recoveryRetries ?? 0) retries left).")
                         self?.promptForCode(title: "Invalid Recovery Code", message: "Retries left: \(self?.recoveryRetries ?? 0)") { code in
                             self?.updateStatus("Verifying recovery code…")
-                            self?.emailOTPHandle?.emit(eventType: E.verifyRecoveryCode.rawValue, arg: code)
+                            self?.emailOTPHandle?.emit(eventType: AuthModule.MFAEventEmit.verifyRecoveryCode.rawValue, arg: code)
                         }
                     }
                 }
             }
 
             // — Device verification —
-            .on(eventName: E.deviceNeedsApproval.rawValue) { [weak self] in
+            .on(eventName: AuthModule.DeviceVerificationEventOnReceived.deviceNeedsApproval.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("New device detected — check your inbox to approve.")
                     self?.showBanner("Device Needs Approval — check your inbox.")
                 }
             }
-            .on(eventName: E.deviceVerificationEmailSent.rawValue) { [weak self] in
+            .on(eventName: AuthModule.DeviceVerificationEventOnReceived.deviceVerificationEmailSent.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("Device verification email sent — waiting for approval…")
                     self?.showBanner("Device verification email sent.")
                 }
             }
-            .on(eventName: E.deviceApproved.rawValue) { [weak self] in
+            .on(eventName: AuthModule.DeviceVerificationEventOnReceived.deviceApproved.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("Device approved! Continuing login…")
                     self?.showBanner("Device approved!")
                 }
             }
-            .on(eventName: E.deviceVerificationLinkExpired.rawValue) { [weak self] in
+            .on(eventName: AuthModule.DeviceVerificationEventOnReceived.deviceVerificationLinkExpired.rawValue) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateStatus("Device verification link expired — retrying…")
                     self?.showResult("Device verification link expired.")
-                    self?.emailOTPHandle?.emit(eventType: E.deviceRetry.rawValue)
+                    self?.emailOTPHandle?.emit(eventType: AuthModule.DeviceVerificationEventEmit.deviceRetry.rawValue)
                 }
             }
 
@@ -401,7 +399,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         alert.addAction(submitAction)
         alert.preferredAction = submitAction
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
-            self?.emailOTPHandle?.emit(eventType: AuthModule.LoginWithEmailOTPEvent.cancel.rawValue)
+            self?.emailOTPHandle?.emit(eventType: AuthModule.LoginWithEmailOTPEventEmit.cancel.rawValue)
             self?.emailActivityIndicator.stopAnimating()
             self?.clearStatus()
         })
