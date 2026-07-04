@@ -249,6 +249,26 @@
                                                     <action selector="logOut" destination="Be8-9n-060" eventType="touchUpInside" id="2VD-JO-Qa0"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MFA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="mfa-section-lbl">
+                                                <rect key="frame" x="0.0" y="397" width="374" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                <color key="textColor" red="0.56" green="0.56" blue="0.58" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-enable-mfa">
+                                                <rect key="frame" x="0.0" y="423" width="374" height="30"/>
+                                                <state key="normal" title="Enable MFA (Headless)"/>
+                                                <connections>
+                                                    <action selector="enableMFA" destination="Be8-9n-060" eventType="touchUpInside" id="btn-enable-mfa-action"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-disable-mfa">
+                                                <rect key="frame" x="0.0" y="461" width="374" height="30"/>
+                                                <state key="normal" title="Disable MFA (Headless)"/>
+                                                <connections>
+                                                    <action selector="disableMFA" destination="Be8-9n-060" eventType="touchUpInside" id="btn-disable-mfa-action"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
