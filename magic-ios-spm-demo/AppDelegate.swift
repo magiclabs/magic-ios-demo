@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // MARK: - Magic Instantiation
-        Magic.shared = Magic(apiKey: "pk_live_667E736A88BC7612")
+        Magic.shared = Magic(apiKey: "pk_live_667E736A88BC7612", extensions: [
+            SolanaConfiguration(rpcUrl: "https://api.devnet.solana.com"),
+            BitcoinConfiguration(rpcUrl: "https://blockstream.info/testnet/api", network: "testnet")
+        ])
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 

@@ -22,6 +22,9 @@
 		A1F619642BB4732A00CBCFF2 /* MagicExt-OAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A1F619632BB4732A00CBCFF2 /* MagicExt-OAuth */; };
 		A1F619662BB4732A00CBCFF2 /* MagicExt-OIDC in Frameworks */ = {isa = PBXBuildFile; productRef = A1F619652BB4732A00CBCFF2 /* MagicExt-OIDC */; };
 		A1F619682BB4732A00CBCFF2 /* MagicSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A1F619672BB4732A00CBCFF2 /* MagicSDK */; };
+		A1D0E00127B1000200F6DB73 /* ChainDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00127B1000100F6DB73 /* ChainDemoViewController.swift */; };
+		A1D0E00227B1000200F6DB73 /* SolanaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00227B1000100F6DB73 /* SolanaViewController.swift */; };
+		A1D0E00327B1000200F6DB73 /* BitcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00327B1000100F6DB73 /* BitcoinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3ViewController.swift; sourceTree = "<group>"; };
 		A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A12957A2279F618400F6DB73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A1D0E00127B1000100F6DB73 /* ChainDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainDemoViewController.swift; sourceTree = "<group>"; };
+		A1D0E00227B1000100F6DB73 /* SolanaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolanaViewController.swift; sourceTree = "<group>"; };
+		A1D0E00327B1000100F6DB73 /* BitcoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,9 @@
 				A129579C279F5F7B00F6DB73 /* MagicViewController.swift */,
 				A129579D279F5F7B00F6DB73 /* Web3ViewController.swift */,
 				A129579E279F5F7B00F6DB73 /* MainTabBarController.swift */,
+				A1D0E00127B1000100F6DB73 /* ChainDemoViewController.swift */,
+				A1D0E00227B1000100F6DB73 /* SolanaViewController.swift */,
+				A1D0E00327B1000100F6DB73 /* BitcoinViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -323,6 +332,9 @@
 				A129575F279BDE2100F6DB73 /* ViewController.swift in Sources */,
 				A12957A1279F5F7B00F6DB73 /* MainTabBarController.swift in Sources */,
 				A12957A0279F5F7B00F6DB73 /* Web3ViewController.swift in Sources */,
+				A1D0E00127B1000200F6DB73 /* ChainDemoViewController.swift in Sources */,
+				A1D0E00227B1000200F6DB73 /* SolanaViewController.swift in Sources */,
+				A1D0E00327B1000200F6DB73 /* BitcoinViewController.swift in Sources */,
 				A129575B279BDE2100F6DB73 /* AppDelegate.swift in Sources */,
 				A129575D279BDE2100F6DB73 /* SceneDelegate.swift in Sources */,
 			);
