@@ -26,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        // Start on the login screen while the session check runs
-        let loginNavController = storyboard.instantiateViewController(withIdentifier: LoginViewController.storyboardIdentifier)
-        window?.rootViewController = loginNavController
+        // The scene shows the login screen while the session check runs
 
         // MARK: - User Session Check
         guard let magic = Magic.shared else { return true }
@@ -70,7 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
-        guard let window = self.window else {
+        // The window belongs to the scene (see SceneDelegate)
+        let scene = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first
+        guard let window = scene?.windows.first else {
             return
         }
         
