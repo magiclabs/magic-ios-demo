@@ -9,13 +9,27 @@ import MagicSDK_Web3
 
 class BitcoinViewController: ChainDemoViewController {
 
+    override var addressTitle: String { "Bitcoin address" }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarItem = UITabBarItem(title: "Bitcoin", image: UIImage(systemName: "bitcoinsign.circle"), selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
 
-        addButton("Get Public Address") { [weak self] in self?.getPublicAddress() }
-        addButton("Sign Transaction (sample)") { [weak self] in self?.signTransaction() }
-        addButton("Reveal Private Key") { [weak self] in self?.revealPrivateKey() }
+        addSection("Account")
+        addAction("Get Public Address", detail: "magic_get_multichain_public_address") { [weak self] in self?.getPublicAddress() }
+
+        addSection("Sign a transaction")
+        addAction("Sign Transaction", detail: "btc_signTransaction, sample UTXO") { [weak self] in self?.signTransaction() }
+
+        addSection("Wallet")
+        addAction("Reveal Private Key", detail: "magic_reveal_key") { [weak self] in self?.revealPrivateKey() }
+    }
+
+    override func loadAddress() {
+        guard let bitcoin = Magic.shared.bitcoin else {
+            didLoadAddress(nil, failure: "Bitcoin extension is not configured.")
+            return
+        }
+        bitcoin.getPublicAddress { self.didLoadAddress($0.result, failure: $0.error?.localizedDescription) }
     }
 
     private var bitcoin: BitcoinExtension? {

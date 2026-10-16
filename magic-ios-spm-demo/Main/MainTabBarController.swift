@@ -24,6 +24,5 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = .gray
         tabBar.isTranslucent = false
-        viewControllers = (viewControllers ?? []) + [SolanaViewController(), BitcoinViewController()]
     }
 }
