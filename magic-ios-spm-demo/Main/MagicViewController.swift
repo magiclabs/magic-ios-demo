@@ -18,7 +18,7 @@ class MagicViewController: ChainDemoViewController {
 
     let magic = Magic.shared
 
-    override var addressTitle: String { "Signed in as" }
+    override var showsAddressCard: Bool { false }
     override var topInset: CGFloat { 12 }
 
     override func viewDidLoad() {
@@ -43,15 +43,6 @@ class MagicViewController: ChainDemoViewController {
 
         addSection("Sign out")
         addAction("Logout", detail: "magic.user.logout") { [weak self] in self?.logOut() }
-    }
-
-    override func loadAddress() {
-        didLoadAddress(UserDefaults.standard.string(forKey: "Email"), failure: "Signed in without an email.")
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        refreshAddressIfNeeded()
     }
 
     func navigateToLogin () {

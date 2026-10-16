@@ -13,6 +13,9 @@ class ChainDemoViewController: UIViewController {
     /// Caption above the address, e.g. "Solana address".
     var addressTitle: String { "Address" }
 
+    /// Whether to show the address card. Off on the Magic tab.
+    var showsAddressCard: Bool { true }
+
     /// Space above the address card. Zero when a parent supplies the gap, as on the Web3 page.
     var topInset: CGFloat { 0 }
 
@@ -148,12 +151,16 @@ class ChainDemoViewController: UIViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
+        addressCard.isHidden = !showsAddressCard
+        let scrollTop = showsAddressCard
+            ? scrollView.topAnchor.constraint(equalTo: addressCard.bottomAnchor, constant: 12)
+            : scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topInset)
         NSLayoutConstraint.activate([
             addressCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topInset),
             addressCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             addressCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
 
-            scrollView.topAnchor.constraint(equalTo: addressCard.bottomAnchor, constant: 12),
+            scrollTop,
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: resultCard.topAnchor, constant: -12),
