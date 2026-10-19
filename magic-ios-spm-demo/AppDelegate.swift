@@ -23,25 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SolanaConfiguration(rpcUrl: "https://api.devnet.solana.com"),
             BitcoinConfiguration(rpcUrl: "https://blockstream.info/testnet/api", network: "testnet")
         ])
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        // The scene shows the login screen while the session check runs
-
-        // MARK: - User Session Check
-        guard let magic = Magic.shared else { return true }
-        magic.user.isLoggedIn { response in
-            DispatchQueue.main.async {
-                if response.result == true {
-                    print("[MagicSDK] isLoggedIn: true — navigating to main")
-                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
-                    self.changeRootViewController(mainTabBarController)
-                } else {
-                    print("[MagicSDK] isLoggedIn: false — staying on login")
-                }
-            }
-        }
-        
+        // The session check runs on the splash screen (see SplashViewController)
         return true
     }
 
@@ -75,7 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // change the root view controller to your specific view controller
-        window.rootViewController = vc
+        guard animated else {
+            window.rootViewController = vc
+            return
+        }
+        UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = vc
+        })
     }
 }
 

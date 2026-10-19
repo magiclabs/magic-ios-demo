@@ -24,6 +24,7 @@
 		A1D0E00327B1000200F6DB73 /* BitcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00327B1000100F6DB73 /* BitcoinViewController.swift */; };
 		A1D0E00427B1000200F6DB73 /* SolanaSampleTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00427B1000100F6DB73 /* SolanaSampleTransactions.swift */; };
 		A1D0E00527B1000200F6DB73 /* EVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00527B1000100F6DB73 /* EVMViewController.swift */; };
+		A1D0E00727B1000200F6DB73 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00727B1000100F6DB73 /* SplashViewController.swift */; };
 		A1F619642BB4732A00CBCFF2 /* MagicExt-OAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A1F619632BB4732A00CBCFF2 /* MagicExt-OAuth */; };
 		A1F619682BB4732A00CBCFF2 /* MagicSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A1F619672BB4732A00CBCFF2 /* MagicSDK */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		A1D0E00327B1000100F6DB73 /* BitcoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinViewController.swift; sourceTree = "<group>"; };
 		A1D0E00427B1000100F6DB73 /* SolanaSampleTransactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolanaSampleTransactions.swift; sourceTree = "<group>"; };
 		A1D0E00527B1000100F6DB73 /* EVMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVMViewController.swift; sourceTree = "<group>"; };
+		A1D0E00727B1000100F6DB73 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				A1D0E00327B1000100F6DB73 /* BitcoinViewController.swift */,
 				A1D0E00427B1000100F6DB73 /* SolanaSampleTransactions.swift */,
 				A1D0E00527B1000100F6DB73 /* EVMViewController.swift */,
+				A1D0E00727B1000100F6DB73 /* SplashViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				A1D0E00327B1000200F6DB73 /* BitcoinViewController.swift in Sources */,
 				A1D0E00427B1000200F6DB73 /* SolanaSampleTransactions.swift in Sources */,
 				A1D0E00527B1000200F6DB73 /* EVMViewController.swift in Sources */,
+				A1D0E00727B1000200F6DB73 /* SplashViewController.swift in Sources */,
 				A129575B279BDE2100F6DB73 /* AppDelegate.swift in Sources */,
 				A129575D279BDE2100F6DB73 /* SceneDelegate.swift in Sources */,
 			);
