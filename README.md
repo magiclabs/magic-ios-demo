@@ -32,3 +32,4 @@ The Cocoapods example has been removed. We recommend using **Swift Package Manag
 - **Maintenance** — We are focusing support and documentation on SPM to keep the demo and SDK integration straightforward.
 
 Use the [Swift Package Manager example](https://github.com/magiclabs/magic-ios-demo/tree/master/SwiftPackageManager) for the current recommended integration.
+test
