@@ -1,7 +1,7 @@
 //
 //  SplashViewController.swift
 //
-//  The first screen. It asks Magic whether the user has a session, then
+//  The first screen, branded Payward. It asks Magic whether the user has a session, then
 //  replaces itself with the main tabs or the login screen.
 
 import UIKit
@@ -19,9 +19,11 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-        let title = UILabel()
-        title.text = "Magic"
-        title.font = .systemFont(ofSize: 34, weight: .semibold)
+        // Payward wordmark: black on light, white on dark (see PaywardWordmark in Assets)
+        let wordmark = UIImageView(image: UIImage(named: "PaywardWordmark"))
+        wordmark.contentMode = .scaleAspectFit
+        wordmark.isAccessibilityElement = true
+        wordmark.accessibilityLabel = "Payward"
 
         let spinner = UIActivityIndicatorView(style: .medium)
         spinner.startAnimating()
@@ -31,15 +33,17 @@ class SplashViewController: UIViewController {
         caption.font = .preferredFont(forTextStyle: .footnote)
         caption.textColor = .secondaryLabel
 
-        let stack = UIStackView(arrangedSubviews: [title, spinner, caption])
+        let stack = UIStackView(arrangedSubviews: [wordmark, spinner, caption])
         stack.axis = .vertical
         stack.alignment = .center
-        stack.spacing = 16
+        stack.spacing = 24
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         NSLayoutConstraint.activate([
             stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            wordmark.widthAnchor.constraint(equalToConstant: 220),
+            wordmark.heightAnchor.constraint(equalTo: wordmark.widthAnchor, multiplier: 500.0 / 3624.0)
         ])
     }
 
