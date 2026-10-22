@@ -8,6 +8,8 @@
 
 import UIKit
 import MagicSDK
+import MagicExt_Solana
+import MagicExt_Bitcoin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,28 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // MARK: - Magic Instantiation
-        Magic.shared = Magic(apiKey: "pk_live_667E736A88BC7612")
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        Magic.shared = Magic(apiKey: "pk_live_667E736A88BC7612", extensions: [
+            SolanaConfiguration(rpcUrl: "https://api.devnet.solana.com"),
+            BitcoinConfiguration(rpcUrl: "https://blockstream.info/testnet/api", network: "testnet")
+        ])
 
-        // Start on the login screen while the session check runs
-        let loginNavController = storyboard.instantiateViewController(withIdentifier: LoginViewController.storyboardIdentifier)
-        window?.rootViewController = loginNavController
-
-        // MARK: - User Session Check
-        guard let magic = Magic.shared else { return true }
-        magic.user.isLoggedIn { response in
-            DispatchQueue.main.async {
-                if response.result == true {
-                    print("[MagicSDK] isLoggedIn: true — navigating to main")
-                    let mainTabBarController = storyboard.instantiateViewController(withIdentifier: MainTabBarController.storyboardIdentifier)
-                    self.changeRootViewController(mainTabBarController)
-                } else {
-                    print("[MagicSDK] isLoggedIn: false — staying on login")
-                }
-            }
-        }
-        
+        // The session check runs on the splash screen (see SplashViewController)
         return true
     }
 
@@ -67,12 +53,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
-        guard let window = self.window else {
+        // The window belongs to the scene (see SceneDelegate)
+        let scene = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first
+        guard let window = scene?.windows.first else {
             return
         }
         
         // change the root view controller to your specific view controller
-        window.rootViewController = vc
+        guard animated else {
+            window.rootViewController = vc
+            return
+        }
+        UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = vc
+        })
     }
 }
 

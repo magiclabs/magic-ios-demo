@@ -8,33 +8,43 @@ import UIKit
 import MagicSDK_Web3
 import MagicSDK
 
-protocol MagicViewControllerDelegate: AnyObject {}
+class MagicViewController: ChainDemoViewController {
 
-class MagicViewController: UIViewController {
-    
     static let storyboardIdentifier = "Magic"
-    
+
     enum Error: Swift.Error {
         case noAccountsFound
     }
-    
-    @IBOutlet weak var emailLabel: UILabel!
-    
-    weak var delegate: MagicViewControllerDelegate?
-    
+
     let magic = Magic.shared
-    
+
+    override var showsAddressCard: Bool { false }
+    override var topInset: CGFloat { 12 }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailLabel.text = UserDefaults.standard.string(forKey: "Email")
-        styleButtons(in: view)
+
+        addSection("Session")
+        addAction("Is Logged In", detail: "magic.user.isLoggedIn") { [weak self] in self?.isLoggedIn() }
+        addAction("Get Info", detail: "magic.user.getInfo") { [weak self] in self?.getInfo() }
+
+        addSection("Tokens")
+        addAction("Get ID Token", detail: "magic.user.getIdToken") { [weak self] in self?.getIdToken() }
+        addAction("Generate ID Token", detail: "magic.user.generateIdToken") { [weak self] in self?.generateIdToken() }
+
+        addSection("Account")
+        addAction("Update Email", detail: "magic.user.updateEmail") { [weak self] in self?.updateEmail() }
+        addAction("Update Phone Number", detail: "magic.user.updatePhoneNumber") { [weak self] in self?.updateSms() }
+        addAction("Show Settings", detail: "magic.user.showSettings") { [weak self] in self?.showSettings() }
+
+        addSection("Multi-factor authentication")
+        addAction("Enable MFA (Headless)", detail: "magic.user.enableMFA") { [weak self] in self?.enableMFA() }
+        addAction("Disable MFA (Headless)", detail: "magic.user.disableMFA") { [weak self] in self?.disableMFA() }
+
+        addSection("Sign out")
+        addAction("Logout", detail: "magic.user.logout") { [weak self] in self?.logOut() }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-    }
-    
+
     func navigateToLogin () {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: LoginViewController.storyboardIdentifier)
@@ -44,44 +54,29 @@ class MagicViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(loginVC)
     }
     
-    private func styleButtons(in rootView: UIView) {
-        for subview in rootView.subviews {
-            if let button = subview as? UIButton {
-                var config = UIButton.Configuration.filled()
-                config.baseBackgroundColor = .black
-                config.baseForegroundColor = .white
-                config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
-                config.cornerStyle = .medium
-                button.configuration = config
-            } else {
-                styleButtons(in: subview)
-            }
-        }
-    }
-
     // MARK: - Phantom functions
     
-    @IBAction func getIdToken() {
+    func getIdToken() {
         guard let magic = magic else { return }
         
         magic.user.getIdToken().done({ response in
-            self.showResult(response)
+            self.show(response)
         }).catch({ error in
-            self.showResult(error.localizedDescription)
+            self.show(error.localizedDescription)
         })
     }
     
-    @IBAction func getInfo() {
+    func getInfo() {
         guard let magic = magic else { return }
             
         magic.user.getInfo().done({ result in
-            self.showResult(result.description)
+            self.show(result.description)
         }).catch({ error in
-            self.showResult(error.localizedDescription)
+            self.show(error.localizedDescription)
         })
     }
     
-    @IBAction func updateEmail() {
+    func updateEmail() {
         
         guard let magic = magic else { return }
         let configuration = UpdateEmailConfiguration(email: "hiro@magic.link")
@@ -92,52 +87,51 @@ class MagicViewController: UIViewController {
         }.on(eventName: UserModule.UpdateEmailEvent.emailSent.rawValue) {
             print("Email sent!")
         }.done({ result in
-                self.showResult(result.description)
+                self.show(result.description)
             }).catch({ error in
-                print(error)
+                self.show(error.localizedDescription)
             })
     }
 
     
     // MARK: - Magic Auth Methods
-    @IBAction func logOut() {
+    func logOut() {
         guard let magic = magic else { return }
         magic.user.logout(response: { response in
             if response.status.isSuccess {
                 UserDefaults.standard.removeObject(forKey: "Email")
                 UserDefaults.standard.removeObject(forKey: "Token")
-                self.showResult(response.result?.description ?? "")
                 self.navigateToLogin()
             }
         })
     }
     
-    @IBAction func generateIdToken() {
+    func generateIdToken() {
         guard let magic = magic else { return }
         magic.user.generateIdToken(response: { response in
-            self.showResult(response.result ?? "")
+            self.show(response.result ?? "")
         })
     }
     
-    @IBAction func updateSms() {
+    func updateSms() {
         guard let magic = magic else { return }
         magic.user.updatePhoneNumber(response: { response in
-            self.showResult(response.result ?? "")
+            self.show(response.result ?? "")
         })
     }
     
-    @IBAction func showSettings() {
+    func showSettings() {
         guard let magic = magic else { return }
         magic.user.showSettings().done({ result in
-            self.showResult(result.email ?? "")
+            self.show(result.email ?? "")
         }).catch({ error in
-            self.showResult(error.localizedDescription)
+            self.show(error.localizedDescription)
         })
     }
-    @IBAction func isLoggedIn() {
+    func isLoggedIn() {
         guard let magic = magic else { return }
         magic.user.isLoggedIn(response: { response in
-            self.showResult(response.result?.description ?? "")
+            self.show(response.result?.description ?? "")
         })
     }
 
@@ -147,7 +141,7 @@ class MagicViewController: UIViewController {
     private var mfaRetries = 2
     private var recoveryRetries = 2
 
-    @IBAction func enableMFA() {
+    func enableMFA() {
         guard let magic = magic else { return }
         mfaRetries = 2
 
@@ -168,7 +162,7 @@ class MagicViewController: UIViewController {
                 DispatchQueue.main.async {
                     if self?.mfaRetries ?? 0 <= 0 {
                         self?.mfaHandle?.emit(eventType: AuthModule.EnableMFAEventEmit.cancel.rawValue)
-                        self?.showResult("Too many invalid attempts — MFA setup cancelled.")
+                        self?.show("Too many invalid attempts — MFA setup cancelled.")
                     } else {
                         self?.mfaRetries -= 1
                         self?.promptForCode(title: "Invalid Code", message: "Enter the 6-digit code from your authenticator app (\(self?.mfaRetries ?? 0) retries left).", cancelEventType: AuthModule.EnableMFAEventEmit.cancel.rawValue) { totp in
@@ -180,21 +174,21 @@ class MagicViewController: UIViewController {
             .on(eventName: AuthModule.EnableMFAEventOnReceived.mfaRecoveryCodes.rawValue) { [weak self] params in
                 DispatchQueue.main.async {
                     let codes = params?["recoveryCode"]?.string ?? ""
-                    self?.showResult("MFA enabled! Save your recovery code:\n\n\(codes)")
+                    self?.show("MFA enabled! Save your recovery code:\n\n\(codes)")
                 }
             }
 
         mfaHandle?
             .onError { [weak self] error in
-                DispatchQueue.main.async { self?.showResult(error.localizedDescription) }
+                DispatchQueue.main.async { self?.show(error.localizedDescription) }
             }
             .done { [weak self] _ in
-                DispatchQueue.main.async { self?.showResult("MFA enabled successfully.") }
+                DispatchQueue.main.async { self?.show("MFA enabled successfully.") }
             }
             .catch { _ in }
     }
 
-    @IBAction func disableMFA() {
+    func disableMFA() {
         guard let magic = magic else { return }
         mfaRetries = 2
         recoveryRetries = 2
@@ -227,7 +221,7 @@ class MagicViewController: UIViewController {
                 DispatchQueue.main.async {
                     if self?.recoveryRetries ?? 0 <= 0 {
                         self?.mfaHandle?.emit(eventType: AuthModule.DisableMFAEventEmit.cancel.rawValue)
-                        self?.showResult("Too many invalid recovery code attempts — cancelled.")
+                        self?.show("Too many invalid recovery code attempts — cancelled.")
                     } else {
                         self?.recoveryRetries -= 1
                         self?.promptForCode(title: "Invalid Recovery Code", message: "Enter your recovery code (\(self?.recoveryRetries ?? 0) retries left).", cancelEventType: AuthModule.DisableMFAEventEmit.cancel.rawValue) { code in
@@ -239,10 +233,10 @@ class MagicViewController: UIViewController {
 
         mfaHandle?
             .onError { [weak self] error in
-                DispatchQueue.main.async { self?.showResult(error.localizedDescription) }
+                DispatchQueue.main.async { self?.show(error.localizedDescription) }
             }
             .done { [weak self] _ in
-                DispatchQueue.main.async { self?.showResult("MFA disabled successfully.") }
+                DispatchQueue.main.async { self?.show("MFA disabled successfully.") }
             }
             .catch { _ in }
     }

@@ -20,7 +20,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     static let storyboardIdentifier = "LoginVC"
 
     let magic = Magic.shared
-    var isLoggedIn: Bool?
 
     weak var delegate: LoginViewControllerDelegate?
 
@@ -69,17 +68,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         styleButtons(in: view)
         setupActivityIndicators()
-
-        guard let magic = magic else { return }
-        // Checked if user is LoggedIn
-
-
-        magic.user.isLoggedIn() { flag in
-            // if it's logged in auto move to next page
-            if flag.result ?? false {
-                self.navigateToMain()
-            }
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
