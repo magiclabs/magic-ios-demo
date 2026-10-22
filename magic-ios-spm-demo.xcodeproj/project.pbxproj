@@ -26,6 +26,8 @@
 		A1D0E00527B1000200F6DB73 /* EVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00527B1000100F6DB73 /* EVMViewController.swift */; };
 		A1D0E00727B1000200F6DB73 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D0E00727B1000100F6DB73 /* SplashViewController.swift */; };
 		A1F619642BB4732A00CBCFF2 /* MagicExt-OAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A1F619632BB4732A00CBCFF2 /* MagicExt-OAuth */; };
+		A1D0E00827B1000200F6DB73 /* MagicExt-Solana in Frameworks */ = {isa = PBXBuildFile; productRef = A1D0E00927B1000200F6DB73 /* MagicExt-Solana */; };
+		A1D0E00A27B1000200F6DB73 /* MagicExt-Bitcoin in Frameworks */ = {isa = PBXBuildFile; productRef = A1D0E00B27B1000200F6DB73 /* MagicExt-Bitcoin */; };
 		A1F619682BB4732A00CBCFF2 /* MagicSDK in Frameworks */ = {isa = PBXBuildFile; productRef = A1F619672BB4732A00CBCFF2 /* MagicSDK */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F619642BB4732A00CBCFF2 /* MagicExt-OAuth in Frameworks */,
+				A1D0E00827B1000200F6DB73 /* MagicExt-Solana in Frameworks */,
+				A1D0E00A27B1000200F6DB73 /* MagicExt-Bitcoin in Frameworks */,
 				A1F619682BB4732A00CBCFF2 /* MagicSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +219,8 @@
 			name = "magic-ios-spm-demo";
 			packageProductDependencies = (
 				A1F619632BB4732A00CBCFF2 /* MagicExt-OAuth */,
+				A1D0E00927B1000200F6DB73 /* MagicExt-Solana */,
+				A1D0E00B27B1000200F6DB73 /* MagicExt-Bitcoin */,
 				A1F619672BB4732A00CBCFF2 /* MagicSDK */,
 			);
 			productName = "magic-spm-ios";
@@ -679,6 +685,14 @@
 		A1F619632BB4732A00CBCFF2 /* MagicExt-OAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "MagicExt-OAuth";
+		};
+		A1D0E00927B1000200F6DB73 /* MagicExt-Solana */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "MagicExt-Solana";
+		};
+		A1D0E00B27B1000200F6DB73 /* MagicExt-Bitcoin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "MagicExt-Bitcoin";
 		};
 		A1F619672BB4732A00CBCFF2 /* MagicSDK */ = {
 			isa = XCSwiftPackageProductDependency;

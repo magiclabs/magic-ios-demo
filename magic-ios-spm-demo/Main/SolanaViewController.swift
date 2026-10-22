@@ -5,6 +5,7 @@
 
 import UIKit
 import MagicSDK
+import MagicExt_Solana
 import MagicSDK_Web3
 
 class SolanaViewController: ChainDemoViewController {

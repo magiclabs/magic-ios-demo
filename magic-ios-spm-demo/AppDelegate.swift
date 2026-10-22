@@ -8,6 +8,8 @@
 
 import UIKit
 import MagicSDK
+import MagicExt_Solana
+import MagicExt_Bitcoin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

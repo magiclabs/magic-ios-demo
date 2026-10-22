@@ -5,6 +5,7 @@
 
 import UIKit
 import MagicSDK
+import MagicExt_Bitcoin
 import MagicSDK_Web3
 
 class BitcoinViewController: ChainDemoViewController {
